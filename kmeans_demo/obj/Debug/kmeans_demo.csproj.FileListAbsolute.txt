@@ -1,0 +1,6 @@
+D:\kdc\mini project\taixiu_ver2\kmeans_demo\bin\Debug\kmeans_demo.exe.config
+D:\kdc\mini project\taixiu_ver2\kmeans_demo\bin\Debug\kmeans_demo.exe
+D:\kdc\mini project\taixiu_ver2\kmeans_demo\bin\Debug\kmeans_demo.pdb
+D:\kdc\mini project\taixiu_ver2\kmeans_demo\obj\Debug\kmeans_demo.csprojResolveAssemblyReference.cache
+D:\kdc\mini project\taixiu_ver2\kmeans_demo\obj\Debug\kmeans_demo.exe
+D:\kdc\mini project\taixiu_ver2\kmeans_demo\obj\Debug\kmeans_demo.pdb

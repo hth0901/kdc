@@ -1,0 +1,11 @@
+D:\kdc\mini project\taixiu_ver2\kdc_project\bin\Debug\kdc_project.exe.config
+D:\kdc\mini project\taixiu_ver2\kdc_project\bin\Debug\kdc_project.exe
+D:\kdc\mini project\taixiu_ver2\kdc_project\bin\Debug\kdc_project.pdb
+D:\kdc\mini project\taixiu_ver2\kdc_project\obj\Debug\kdc_project.csprojResolveAssemblyReference.cache
+D:\kdc\mini project\taixiu_ver2\kdc_project\obj\Debug\kdc_project.Properties.Resources.resources
+D:\kdc\mini project\taixiu_ver2\kdc_project\obj\Debug\kdc_project.csproj.GenerateResource.Cache
+D:\kdc\mini project\taixiu_ver2\kdc_project\obj\Debug\kdc_project.exe
+D:\kdc\mini project\taixiu_ver2\kdc_project\obj\Debug\kdc_project.pdb
+D:\kdc\mini project\taixiu_ver2\kdc_project\bin\Debug\CsvHelper.dll
+D:\kdc\mini project\taixiu_ver2\kdc_project\bin\Debug\CsvHelper.xml
+D:\kdc\mini project\taixiu_ver2\kdc_project\obj\Debug\kdc_project.Form1.resources

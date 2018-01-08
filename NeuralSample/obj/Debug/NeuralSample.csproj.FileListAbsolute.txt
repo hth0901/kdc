@@ -1,0 +1,8 @@
+D:\kdc\mini project\taixiu_ver2\NeuralSample\bin\Debug\NeuralSample.exe
+D:\kdc\mini project\taixiu_ver2\NeuralSample\bin\Debug\NeuralSample.pdb
+D:\kdc\mini project\taixiu_ver2\NeuralSample\obj\Debug\NeuralSample.csprojResolveAssemblyReference.cache
+D:\kdc\mini project\taixiu_ver2\NeuralSample\obj\Debug\NeuralSample.Properties.Resources.resources
+D:\kdc\mini project\taixiu_ver2\NeuralSample\obj\Debug\NeuralSample.csproj.GenerateResource.Cache
+D:\kdc\mini project\taixiu_ver2\NeuralSample\obj\Debug\NeuralSample.exe
+D:\kdc\mini project\taixiu_ver2\NeuralSample\obj\Debug\NeuralSample.pdb
+D:\kdc\mini project\taixiu_ver2\NeuralSample\obj\Debug\NeuralSample.Form1.resources

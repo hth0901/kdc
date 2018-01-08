@@ -1,0 +1,65 @@
+D:\programming learning\C# learning\ANN_API\ANN_API\bin\Debug\ANN_API.exe
+D:\programming learning\C# learning\ANN_API\ANN_API\bin\Debug\ANN_API.pdb
+D:\programming learning\C# learning\ANN_API\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\programming learning\C# learning\ANN_API\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
+D:\programming learning\C# learning\ANN_API\ANN_API\obj\x86\Debug\ANN_API.exe
+D:\programming learning\C# learning\ANN_API\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\programming learning\C# learning\ANN_API\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\programming learning\C# learning\ANN_API\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\programming learning\C# learning\ANN_API\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
+D:\programming learning\C# learning\ANN_test\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
+D:\programming learning\C# learning\ANN_test\ANN_API\obj\x86\Debug\ANN_API.exe
+D:\programming learning\C# learning\ANN_test\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\programming learning\C# learning\ANN_test\ANN_API\bin\Debug\ANN_API.exe
+D:\programming learning\C# learning\ANN_test\ANN_API\bin\Debug\ANN_API.pdb
+D:\programming learning\C# learning\ANN_test\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\programming learning\C# learning\ANN_test\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\programming learning\C# learning\ANN_test\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\programming learning\C# learning\ANN_test\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
+D:\programming learning\C# learning\ANN_Array\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
+D:\programming learning\C# learning\ANN_Array\ANN_API\obj\x86\Debug\ANN_API.exe
+D:\programming learning\C# learning\ANN_Array\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\programming learning\C# learning\ANN_Array\ANN_API\bin\Debug\ANN_API.exe
+D:\programming learning\C# learning\ANN_Array\ANN_API\bin\Debug\ANN_API.pdb
+D:\programming learning\C# learning\ANN_Array\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\programming learning\C# learning\ANN_Array\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\programming learning\C# learning\ANN_Array\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\programming learning\C# learning\ANN_Array\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\obj\x86\Debug\ANN_API.exe
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\bin\Debug\ANN_API.exe
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\bin\Debug\ANN_API.pdb
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\kuxidaica\mini project\ANN_taixiu\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\obj\x86\Debug\ANN_API.exe
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\bin\Debug\ANN_API.exe
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\bin\Debug\ANN_API.pdb
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\kuxidaica\mini project\ANN_taixiu_8\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.exe
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\bin\Debug\ANN_API.exe
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\bin\Debug\ANN_API.pdb
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\kuxidaica\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
+D:\kdc\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
+D:\kdc\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.exe
+D:\kdc\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\kdc\mini project\taixiu_ver2\ANN_API\bin\Debug\ANN_API.exe
+D:\kdc\mini project\taixiu_ver2\ANN_API\bin\Debug\ANN_API.pdb
+D:\kdc\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\kdc\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\kdc\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\kdc\mini project\taixiu_ver2\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
+D:\kdc\mini project\taixiu_ver2\ANN_API\bin\Debug\CsvHelper.dll
+D:\kdc\mini project\taixiu_ver2\ANN_API\bin\Debug\CsvHelper.xml
