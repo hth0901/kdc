@@ -9,3 +9,14 @@ D:\kdc\mini project\taixiu_ver2\NeralSample_2\obj\Debug\NeralSample_2.pdb
 D:\kdc\mini project\taixiu_ver2\NeralSample_2\bin\Debug\NeralSample_2.exe.config
 D:\kdc\mini project\taixiu_ver2\NeralSample_2\bin\Debug\CsvHelper.dll
 D:\kdc\mini project\taixiu_ver2\NeralSample_2\bin\Debug\CsvHelper.xml
+D:\KdcProject\kdc\NeralSample_2\bin\Debug\NeralSample_2.exe.config
+D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.exe
+D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.pdb
+D:\KdcProject\kdc\NeralSample_2\bin\Debug\NeralSample_2.exe
+D:\KdcProject\kdc\NeralSample_2\bin\Debug\NeralSample_2.pdb
+D:\KdcProject\kdc\NeralSample_2\bin\Debug\CsvHelper.dll
+D:\KdcProject\kdc\NeralSample_2\bin\Debug\CsvHelper.xml
+D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.csprojResolveAssemblyReference.cache
+D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.FormSample.resources
+D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.Properties.Resources.resources
+D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.csproj.GenerateResource.Cache

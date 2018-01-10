@@ -12,7 +12,7 @@ using System.Diagnostics;
 
 namespace NeralSample_2
 {
-    public partial class Form1 : Form
+    public partial class FormSample : Form
     {
         private static int numberOfPattern = 1;
         private static int numberOfInputNode = 3;
@@ -157,7 +157,7 @@ namespace NeralSample_2
 
             updateAllWeights(outputValue, outputExpect, hiddenValues);
         }
-        public Form1()
+        public FormSample()
         {
             InitializeComponent();
         }
@@ -181,13 +181,13 @@ namespace NeralSample_2
             outputWeight[1] = -0.3;
             outputWeight[2] = -0.2;
 
-            valueOfInputNode[0] = new double[4];
+            /*valueOfInputNode[0] = new double[4];
             valueOfInputNode[0][0] = 1;
             valueOfInputNode[0][1] = 1;
             valueOfInputNode[0][2] = 0;
             valueOfInputNode[0][3] = 1;
 
-            valueExpectOutput[0] = 1;
+            valueExpectOutput[0] = 1;*/
 
             //trainOnePattern(valueOfInputNode[0], valueExpectOutput[0]);
             int n = 0;
@@ -211,6 +211,7 @@ namespace NeralSample_2
                 var reader = new CsvReader(sr);
                 IEnumerable<InputValue> records = reader.GetRecords<InputValue>();
                 List<double[]> values = new List<double[]>();
+                List<double> expectValues = new List<double>();
                 foreach (InputValue rec in records)
                 {
                     //values.Add(rec.x10);
@@ -219,10 +220,16 @@ namespace NeralSample_2
                     value.Add(rec.x1);
                     value.Add(rec.x2);
                     value.Add(rec.x3);
+                    double expect = rec.expect;
                     values.Add(value.ToArray());
+                    expectValues.Add(expect);
                 }
 
-                MessageBox.Show("");
+                numberOfPattern = values.Count;
+                valueOfInputNode = values.ToArray();
+                valueExpectOutput = expectValues.ToArray();
+
+                MessageBox.Show("Loaded!!");
             }
         }
     }

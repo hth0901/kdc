@@ -29,5 +29,10 @@ namespace NeralSample_2
             get;
             set;
         }
+        public double expect
+        {
+            get;
+            set;
+        }
     }
 }

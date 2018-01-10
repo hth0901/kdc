@@ -1,6 +1,6 @@
 ﻿namespace NeralSample_2
 {
-    partial class Form1
+    partial class FormSample
     {
         /// <summary>
         /// Required designer variable.
@@ -52,15 +52,15 @@
             this.btnLoadRawData.UseVisualStyleBackColor = true;
             this.btnLoadRawData.Click += new System.EventHandler(this.btnLoadRawData_Click);
             // 
-            // Form1
+            // FormSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.btnLoadRawData);
             this.Controls.Add(this.btnTest);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormSample";
+            this.Text = "Form Sample";
             this.ResumeLayout(false);
 
         }
