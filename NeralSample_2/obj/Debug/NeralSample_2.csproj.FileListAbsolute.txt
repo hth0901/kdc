@@ -6,3 +6,6 @@ D:\kdc\mini project\taixiu_ver2\NeralSample_2\obj\Debug\NeralSample_2.Properties
 D:\kdc\mini project\taixiu_ver2\NeralSample_2\obj\Debug\NeralSample_2.csproj.GenerateResource.Cache
 D:\kdc\mini project\taixiu_ver2\NeralSample_2\obj\Debug\NeralSample_2.exe
 D:\kdc\mini project\taixiu_ver2\NeralSample_2\obj\Debug\NeralSample_2.pdb
+D:\kdc\mini project\taixiu_ver2\NeralSample_2\bin\Debug\NeralSample_2.exe.config
+D:\kdc\mini project\taixiu_ver2\NeralSample_2\bin\Debug\CsvHelper.dll
+D:\kdc\mini project\taixiu_ver2\NeralSample_2\bin\Debug\CsvHelper.xml

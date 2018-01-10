@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CsvHelper;
+using System.IO;
+using System.Diagnostics;
 
 namespace NeralSample_2
 {
@@ -199,6 +202,28 @@ namespace NeralSample_2
             while (n < 1);
             double test = calOutPut(valueOfInputNode[0]);
             MessageBox.Show("sdfsfsdf");
+        }
+
+        private void btnLoadRawData_Click(object sender, EventArgs e)
+        {
+            using (var sr = new StreamReader(@"trainTest.csv"))
+            {
+                var reader = new CsvReader(sr);
+                IEnumerable<InputValue> records = reader.GetRecords<InputValue>();
+                List<double[]> values = new List<double[]>();
+                foreach (InputValue rec in records)
+                {
+                    //values.Add(rec.x10);
+                    List<double> value = new List<double>();
+                    value.Add(rec.x0);
+                    value.Add(rec.x1);
+                    value.Add(rec.x2);
+                    value.Add(rec.x3);
+                    values.Add(value.ToArray());
+                }
+
+                MessageBox.Show("");
+            }
         }
     }
 }
