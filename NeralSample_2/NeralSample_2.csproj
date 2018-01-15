@@ -58,7 +58,9 @@
     <Compile Include="FormSample.Designer.cs">
       <DependentUpon>FormSample.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper.cs" />
     <Compile Include="InputValue.cs" />
+    <Compile Include="k_means.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormSample.resx">

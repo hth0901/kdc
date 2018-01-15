@@ -66,3 +66,11 @@ D:\kdc\mini project\taixiu_ver2\ANN_API\bin\Debug\CsvHelper.xml
 D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
 D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.exe
 D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\KdcProject\kdc\ANN_API\bin\Debug\ANN_API.exe
+D:\KdcProject\kdc\ANN_API\bin\Debug\ANN_API.pdb
+D:\KdcProject\kdc\ANN_API\bin\Debug\CsvHelper.dll
+D:\KdcProject\kdc\ANN_API\bin\Debug\CsvHelper.xml
+D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache

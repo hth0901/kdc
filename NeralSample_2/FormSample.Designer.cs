@@ -30,6 +30,7 @@
         {
             this.btnTest = new System.Windows.Forms.Button();
             this.btnLoadRawData = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // btnTest
@@ -44,13 +45,17 @@
             // 
             // btnLoadRawData
             // 
-            this.btnLoadRawData.Location = new System.Drawing.Point(48, 56);
+            this.btnLoadRawData.Location = new System.Drawing.Point(28, 22);
             this.btnLoadRawData.Name = "btnLoadRawData";
             this.btnLoadRawData.Size = new System.Drawing.Size(75, 23);
             this.btnLoadRawData.TabIndex = 1;
             this.btnLoadRawData.Text = "Load Raw Data";
             this.btnLoadRawData.UseVisualStyleBackColor = true;
             this.btnLoadRawData.Click += new System.EventHandler(this.btnLoadRawData_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormSample
             // 
@@ -69,6 +74,7 @@
 
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnLoadRawData;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
