@@ -31,6 +31,7 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.btnLoadRawData = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnWriteFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTest
@@ -57,11 +58,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnWriteFile
+            // 
+            this.btnWriteFile.Location = new System.Drawing.Point(53, 98);
+            this.btnWriteFile.Name = "btnWriteFile";
+            this.btnWriteFile.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteFile.TabIndex = 2;
+            this.btnWriteFile.Text = "Write";
+            this.btnWriteFile.UseVisualStyleBackColor = true;
+            this.btnWriteFile.Click += new System.EventHandler(this.btnWriteFile_Click);
+            // 
             // FormSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnWriteFile);
             this.Controls.Add(this.btnLoadRawData);
             this.Controls.Add(this.btnTest);
             this.Name = "FormSample";
@@ -75,6 +87,7 @@
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnLoadRawData;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnWriteFile;
     }
 }
 

@@ -285,5 +285,32 @@ namespace NeralSample_2
                 }
             }
         }
+
+        private void btnWriteFile_Click(object sender, EventArgs e)
+        {
+            string fileName = @"hihihaha.csv";
+            InputValue[] data = new InputValue[2];
+            data[0] = new InputValue();
+            data[0].x0 = 1;
+            data[0].x1 = 2;
+            data[0].x2 = 3;
+            data[0].x3 = 4;
+            data[0].expect = 5;
+
+            data[1] = new InputValue();
+            data[1].x0 = 11;
+            data[1].x1 = 21;
+            data[1].x2 = 31;
+            data[1].x3 = 41;
+            data[1].expect = 51;
+            IEnumerable<InputValue> test = data.ToList();
+            using(var wr = new StreamWriter(fileName))
+            {
+                var csvWriter = new CsvWriter(wr);
+                //csvWriter.WriteHeader<InputValue>();
+                //csvWriter.NextRecord();
+                csvWriter.WriteRecords(test);
+            }
+        }
     }
 }
