@@ -22,3 +22,16 @@ D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.Properties.Resources.res
 D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.csproj.GenerateResource.Cache
 D:\KdcProject\kdc\NeralSample_2\bin\Debug\Newtonsoft.Json.dll
 D:\KdcProject\kdc\NeralSample_2\bin\Debug\Newtonsoft.Json.xml
+D:\hieuht\kdc\NeralSample_2\bin\Debug\NeralSample_2.exe.config
+D:\hieuht\kdc\NeralSample_2\bin\Debug\NeralSample_2.exe
+D:\hieuht\kdc\NeralSample_2\bin\Debug\NeralSample_2.pdb
+D:\hieuht\kdc\NeralSample_2\bin\Debug\CsvHelper.dll
+D:\hieuht\kdc\NeralSample_2\bin\Debug\Newtonsoft.Json.dll
+D:\hieuht\kdc\NeralSample_2\bin\Debug\CsvHelper.xml
+D:\hieuht\kdc\NeralSample_2\bin\Debug\Newtonsoft.Json.xml
+D:\hieuht\kdc\NeralSample_2\obj\Debug\NeralSample_2.csprojResolveAssemblyReference.cache
+D:\hieuht\kdc\NeralSample_2\obj\Debug\NeralSample_2.FormSample.resources
+D:\hieuht\kdc\NeralSample_2\obj\Debug\NeralSample_2.Properties.Resources.resources
+D:\hieuht\kdc\NeralSample_2\obj\Debug\NeralSample_2.csproj.GenerateResource.Cache
+D:\hieuht\kdc\NeralSample_2\obj\Debug\NeralSample_2.exe
+D:\hieuht\kdc\NeralSample_2\obj\Debug\NeralSample_2.pdb

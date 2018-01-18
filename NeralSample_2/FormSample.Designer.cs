@@ -34,6 +34,7 @@
             this.btnWriteFile = new System.Windows.Forms.Button();
             this.btnTrain = new System.Windows.Forms.Button();
             this.btnJson = new System.Windows.Forms.Button();
+            this.btnOpenJson = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTest
@@ -90,11 +91,22 @@
             this.btnJson.UseVisualStyleBackColor = true;
             this.btnJson.Click += new System.EventHandler(this.btnJson_Click);
             // 
+            // btnOpenJson
+            // 
+            this.btnOpenJson.Location = new System.Drawing.Point(197, 206);
+            this.btnOpenJson.Name = "btnOpenJson";
+            this.btnOpenJson.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenJson.TabIndex = 5;
+            this.btnOpenJson.Text = "OpenJson";
+            this.btnOpenJson.UseVisualStyleBackColor = true;
+            this.btnOpenJson.Click += new System.EventHandler(this.btnOpenJson_Click);
+            // 
             // FormSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnOpenJson);
             this.Controls.Add(this.btnJson);
             this.Controls.Add(this.btnTrain);
             this.Controls.Add(this.btnWriteFile);
@@ -114,6 +126,7 @@
         private System.Windows.Forms.Button btnWriteFile;
         private System.Windows.Forms.Button btnTrain;
         private System.Windows.Forms.Button btnJson;
+        private System.Windows.Forms.Button btnOpenJson;
     }
 }
 

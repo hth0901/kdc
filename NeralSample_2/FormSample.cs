@@ -410,10 +410,15 @@ namespace NeralSample_2
             test_3.w1 = 13;
             test_3.w2 = 23;
 
-            string json = JsonConvert.SerializeObject(test, Formatting.Indented);
+            NeuralNetwork neuralTest = new NeuralNetwork();
+            neuralTest.hidden_1 = test;
+            neuralTest.hidden_2 = test_2;
+            neuralTest.output = test_3;
+
+            /*string json = JsonConvert.SerializeObject(test, Formatting.Indented);
 
             JObject o = new JObject();
-            o["hihhha"] = json;
+            o["hihhha"] = json;*/
 
             using (StreamWriter file = File.CreateText(@"test.json"))
             {
@@ -421,6 +426,22 @@ namespace NeralSample_2
                 //serializer.Serialize(file, o);
                 //serializer.Serialize(file, test_2);
                 //serializer.Serialize(file, test_3);
+                serializer.Serialize(file, neuralTest);
+            }
+        }
+
+        private void btnOpenJson_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.FileName = "*.json";
+            if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = this.openFileDialog1.FileName;
+                using(StreamReader file = File.OpenText(fileName))
+                {
+                    JsonSerializer ser = new JsonSerializer();
+                    NeuralNetwork test = (NeuralNetwork)ser.Deserialize(file, typeof(NeuralNetwork));
+                    MessageBox.Show("sfsdf");
+                }
             }
         }
     }

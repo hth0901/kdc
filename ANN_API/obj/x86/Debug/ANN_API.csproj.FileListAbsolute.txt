@@ -74,3 +74,14 @@ D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.c
 D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
 D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
 D:\KdcProject\kdc\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
+D:\hieuht\kdc\ANN_API\obj\x86\Debug\ANN_API.csproj.ResolveComReference.cache
+D:\hieuht\kdc\ANN_API\obj\x86\Debug\ANN_API.exe
+D:\hieuht\kdc\ANN_API\obj\x86\Debug\ANN_API.pdb
+D:\hieuht\kdc\ANN_API\bin\Debug\ANN_API.exe
+D:\hieuht\kdc\ANN_API\bin\Debug\ANN_API.pdb
+D:\hieuht\kdc\ANN_API\bin\Debug\CsvHelper.dll
+D:\hieuht\kdc\ANN_API\bin\Debug\CsvHelper.xml
+D:\hieuht\kdc\ANN_API\obj\x86\Debug\ANN_API.csprojResolveAssemblyReference.cache
+D:\hieuht\kdc\ANN_API\obj\x86\Debug\ANN_API.Form1.resources
+D:\hieuht\kdc\ANN_API\obj\x86\Debug\ANN_API.Properties.Resources.resources
+D:\hieuht\kdc\ANN_API\obj\x86\Debug\ANN_API.csproj.GenerateResource.Cache
