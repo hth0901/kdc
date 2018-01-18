@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using CsvHelper;
 using System.IO;
 using System.Diagnostics;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace NeralSample_2
 {
@@ -194,7 +196,7 @@ namespace NeralSample_2
 
             //trainOnePattern(valueOfInputNode[0], valueExpectOutput[0]);
 
-            double[][] initWeightHidden = new double[numberOfHiddenNode][];
+            /*double[][] initWeightHidden = new double[numberOfHiddenNode][];
             for (int i = 0; i < initWeightHidden.Length; i++)
                 initWeightHidden[i] = new double[numberOfInputNode + 1];
             initWeightHidden[0][0] = -0.4;
@@ -224,6 +226,77 @@ namespace NeralSample_2
             }
             while (n < 1);
             //double test = calOutPut(valueOfInputNode[0]);
+            MessageBox.Show("sdfsfsdf");*/
+            //trainSetOfPattern(valueOfInputNode, valueExpectOutput);
+        }
+
+        private void trainSetOfPattern(double[][] setPatternInput, double[] setPatternOutput, int indexOfSet)
+        {
+            double[][] initWeightHidden = new double[numberOfHiddenNode][];
+            for (int i = 0; i < initWeightHidden.Length; i++)
+                initWeightHidden[i] = new double[numberOfInputNode + 1];
+            initWeightHidden[0][0] = -0.4;
+            initWeightHidden[0][1] = 0.2;
+            initWeightHidden[0][2] = 0.4;
+            initWeightHidden[0][3] = -0.5;
+
+            initWeightHidden[1][0] = 0.2;
+            initWeightHidden[1][1] = -0.3;
+            initWeightHidden[1][2] = 0.1;
+            initWeightHidden[1][3] = 0.2;
+
+            double[] initWeightOutput = new double[numberOfHiddenNode + 1];
+            initWeightOutput[0] = 0.1;
+            initWeightOutput[1] = -0.3;
+            initWeightOutput[2] = -0.2;
+
+            int n = 0;
+            do
+            {
+                for (int i = 0; i < numberOfPattern; i++)
+                {
+                    //trainOnePattern(valueOfInputNode[i], valueExpectOutput[i]);
+                    trainOnePattern(setPatternInput[i], setPatternOutput[i], initWeightHidden, initWeightOutput);
+                }
+                n = n + 1;
+            }
+            while (n < 1);
+
+            for (int i = 0; i < initWeightHidden.Length; i++)
+            {
+                string fileName = "hiddenWeight" + indexOfSet.ToString() + (i + 1).ToString();
+                List<HiddenWeight> list = new List<HiddenWeight>();
+                HiddenWeight item = new HiddenWeight();
+                item.w0 = initWeightHidden[i][0];
+                item.w1 = initWeightHidden[i][1];
+                item.w2 = initWeightHidden[i][2];
+                item.w3 = initWeightHidden[i][3];
+                list.Add(item);
+
+                IEnumerable<object> weights = list;
+
+                using (var wr = new StreamWriter(fileName))
+                {
+                    var csvWriter = new CsvWriter(wr);
+                    csvWriter.WriteRecords(weights);
+                }
+            }
+
+            string fileOutWeight = "outWeight" + indexOfSet.ToString();
+            List<OutWeight> listOutWeight = new List<OutWeight>();
+            OutWeight outWeightItem = new OutWeight();
+            outWeightItem.w0 = initWeightOutput[0];
+            outWeightItem.w1 = initWeightOutput[1];
+            outWeightItem.w2 = initWeightOutput[2];
+            listOutWeight.Add(outWeightItem);
+            IEnumerable<object> lstOutWeight = listOutWeight;
+
+            using (var wr = new StreamWriter(fileOutWeight))
+            {
+                var csvWriter = new CsvWriter(wr);
+                csvWriter.WriteRecords(lstOutWeight);
+            }
+
             MessageBox.Show("sdfsfsdf");
         }
 
@@ -310,6 +383,44 @@ namespace NeralSample_2
                 //csvWriter.WriteHeader<InputValue>();
                 //csvWriter.NextRecord();
                 csvWriter.WriteRecords(test);
+            }
+        }
+
+        private void btnTrain_Click(object sender, EventArgs e)
+        {
+            trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
+        }
+
+        private void btnJson_Click(object sender, EventArgs e)
+        {
+            HiddenWeight test = new HiddenWeight();
+            test.w0 = 0;
+            test.w1 = 1;
+            test.w2 = 2;
+            test.w3 = 3;
+
+            HiddenWeight test_2 = new HiddenWeight();
+            test_2.w0 = 02;
+            test_2.w1 = 12;
+            test_2.w2 = 22;
+            test_2.w3 = 32;
+
+            OutWeight test_3 = new OutWeight();
+            test_3.w0 = 03;
+            test_3.w1 = 13;
+            test_3.w2 = 23;
+
+            string json = JsonConvert.SerializeObject(test, Formatting.Indented);
+
+            JObject o = new JObject();
+            o["hihhha"] = json;
+
+            using (StreamWriter file = File.CreateText(@"test.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                //serializer.Serialize(file, o);
+                //serializer.Serialize(file, test_2);
+                //serializer.Serialize(file, test_3);
             }
         }
     }

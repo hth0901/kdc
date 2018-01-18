@@ -20,3 +20,5 @@ D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.csprojResolveAssemblyRef
 D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.FormSample.resources
 D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.Properties.Resources.resources
 D:\KdcProject\kdc\NeralSample_2\obj\Debug\NeralSample_2.csproj.GenerateResource.Cache
+D:\KdcProject\kdc\NeralSample_2\bin\Debug\Newtonsoft.Json.dll
+D:\KdcProject\kdc\NeralSample_2\bin\Debug\Newtonsoft.Json.xml
