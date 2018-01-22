@@ -66,6 +66,7 @@
     <Compile Include="HiddenWeight.cs" />
     <Compile Include="InputValue.cs" />
     <Compile Include="k_means.cs" />
+    <Compile Include="MeanCluster.cs" />
     <Compile Include="NeuralNetwork.cs" />
     <Compile Include="OutWeight.cs" />
     <Compile Include="Program.cs" />

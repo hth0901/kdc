@@ -262,7 +262,7 @@ namespace NeralSample_2
             }
             while (n < 1);
 
-            for (int i = 0; i < initWeightHidden.Length; i++)
+            /*for (int i = 0; i < initWeightHidden.Length; i++)
             {
                 string fileName = "hiddenWeight" + indexOfSet.ToString() + (i + 1).ToString();
                 List<HiddenWeight> list = new List<HiddenWeight>();
@@ -295,6 +295,29 @@ namespace NeralSample_2
             {
                 var csvWriter = new CsvWriter(wr);
                 csvWriter.WriteRecords(lstOutWeight);
+            }*/
+
+            HiddenWeight[] arrHiddenWeights = new HiddenWeight[2];
+            for (int i = 0; i < numberOfHiddenNode; i++)
+            {
+                arrHiddenWeights[i] = new HiddenWeight();
+                arrHiddenWeights[i].w0 = initWeightHidden[i][0];
+                arrHiddenWeights[i].w1 = initWeightHidden[i][1];
+                arrHiddenWeights[i].w2 = initWeightHidden[i][2];
+                arrHiddenWeights[i].w3 = initWeightHidden[i][3];
+            }
+
+            NeuralNetwork neuralTest = new NeuralNetwork();
+
+            neuralTest.lstHiddenWeights = arrHiddenWeights;
+
+            using (StreamWriter file = File.CreateText(@"neural.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                //serializer.Serialize(file, o);
+                //serializer.Serialize(file, test_2);
+                //serializer.Serialize(file, test_3);
+                serializer.Serialize(file, neuralTest);
             }
 
             MessageBox.Show("sdfsfsdf");
@@ -386,9 +409,57 @@ namespace NeralSample_2
             }
         }
 
+        private void writeAllMeanClusters(double[][] arrCluster)
+        {
+            for (int i = 0; i < arrCluster.Length; i++)
+            {
+                int clusterIndex = i + 1;
+                string fileName = @"cluster_" + clusterIndex.ToString() + ".csv";
+                MeanCluster[] arrMean = new MeanCluster[1];
+                arrMean[0] = new MeanCluster();
+                arrMean[0].x0 = arrCluster[i][0];
+                arrMean[0].x1 = arrCluster[i][1];
+                arrMean[0].x2 = arrCluster[i][2];
+                arrMean[0].x3 = arrCluster[i][3];
+
+                IEnumerable<MeanCluster> data = arrMean.ToList();
+                using(var wr = new StreamWriter(fileName))
+                {
+                    var csvWriter = new CsvWriter(wr);
+                    csvWriter.WriteRecords(data);
+                }
+            }
+        }
+
         private void btnTrain_Click(object sender, EventArgs e)
         {
-            trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
+            int[] arrCluster;
+            List<double[]> cluster_1 = new List<double[]>();
+            List<double[]> cluster_2 = new List<double[]>();
+
+            List<double> lstOutPut_1 = new List<double>();
+            List<double> lstOutPut_2 = new List<double>();
+
+            double[][] arrMeans = k_means.MeansCal(valueOfInputNode, 2, out arrCluster);
+
+            writeAllMeanClusters(arrMeans);
+
+            for (int i = 0; i < arrCluster.Length; i++)
+            {
+                if (arrCluster[i] == 0)
+                {
+                    cluster_1.Add(valueOfInputNode[i]);
+                    lstOutPut_1.Add(valueExpectOutput[i]);
+                }
+                else
+                {
+                    cluster_2.Add(valueOfInputNode[i]);
+                    lstOutPut_2.Add(valueExpectOutput[i]);
+                }
+            }
+
+            MessageBox.Show("cluster finished!!");
+            //trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
         }
 
         private void btnJson_Click(object sender, EventArgs e)
@@ -411,14 +482,20 @@ namespace NeralSample_2
             test_3.w2 = 23;
 
             NeuralNetwork neuralTest = new NeuralNetwork();
-            neuralTest.hidden_1 = test;
-            neuralTest.hidden_2 = test_2;
-            neuralTest.output = test_3;
+            //neuralTest.hidden_1 = test;
+            //neuralTest.hidden_2 = test_2;
+            //neuralTest.output = test_3;
 
             /*string json = JsonConvert.SerializeObject(test, Formatting.Indented);
 
             JObject o = new JObject();
             o["hihhha"] = json;*/
+
+            HiddenWeight[] arrHiddenWeights = new HiddenWeight[2];
+            arrHiddenWeights[0] = test;
+            arrHiddenWeights[1] = test_2;
+
+            neuralTest.lstHiddenWeights = arrHiddenWeights;
 
             using (StreamWriter file = File.CreateText(@"test.json"))
             {
@@ -443,6 +520,22 @@ namespace NeralSample_2
                     MessageBox.Show("sfsdf");
                 }
             }
+        }
+
+        private void btnCluster_Click(object sender, EventArgs e)
+        {
+            int[] arrCluster;
+            List<double[]> cluster_1 = new List<double[]>();
+            List<double[]> cluster_2 = new List<double[]>();
+            double[][] arrMeans = k_means.MeansCal(valueOfInputNode, 2, out arrCluster);
+            for (int i = 0; i < arrCluster.Length; i++)
+            {
+                if (arrCluster[i] == 0)
+                    cluster_1.Add(valueOfInputNode[i]);
+                else
+                    cluster_2.Add(valueOfInputNode[i]);
+            }
+            MessageBox.Show("hiihhaha");
         }
     }
 }

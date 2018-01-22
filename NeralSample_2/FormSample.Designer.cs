@@ -35,6 +35,7 @@
             this.btnTrain = new System.Windows.Forms.Button();
             this.btnJson = new System.Windows.Forms.Button();
             this.btnOpenJson = new System.Windows.Forms.Button();
+            this.btnCluster = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTest
@@ -101,11 +102,22 @@
             this.btnOpenJson.UseVisualStyleBackColor = true;
             this.btnOpenJson.Click += new System.EventHandler(this.btnOpenJson_Click);
             // 
+            // btnCluster
+            // 
+            this.btnCluster.Location = new System.Drawing.Point(179, 78);
+            this.btnCluster.Name = "btnCluster";
+            this.btnCluster.Size = new System.Drawing.Size(75, 23);
+            this.btnCluster.TabIndex = 6;
+            this.btnCluster.Text = "Cluster";
+            this.btnCluster.UseVisualStyleBackColor = true;
+            this.btnCluster.Click += new System.EventHandler(this.btnCluster_Click);
+            // 
             // FormSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnCluster);
             this.Controls.Add(this.btnOpenJson);
             this.Controls.Add(this.btnJson);
             this.Controls.Add(this.btnTrain);
@@ -127,6 +139,7 @@
         private System.Windows.Forms.Button btnTrain;
         private System.Windows.Forms.Button btnJson;
         private System.Windows.Forms.Button btnOpenJson;
+        private System.Windows.Forms.Button btnCluster;
     }
 }
 

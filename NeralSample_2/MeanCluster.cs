@@ -6,30 +6,25 @@ using System.Threading.Tasks;
 
 namespace NeralSample_2
 {
-    public class NeuralNetwork
+    public class MeanCluster
     {
-        /*public HiddenWeight hidden_1
-        {
-            get;
-            set;
-        }
-        public HiddenWeight hidden_2
-        {
-            get;
-            set;
-        }
-        public OutWeight output
+        public double x0
         {
             get;
             set;
         }
 
-        public void testFunc()
+        public double x1
         {
-
-        }*/
-
-        public HiddenWeight[] lstHiddenWeights
+            get;
+            set;
+        }
+        public double x2
+        {
+            get;
+            set;
+        }
+        public double x3
         {
             get;
             set;
