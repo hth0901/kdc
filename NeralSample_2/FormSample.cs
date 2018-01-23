@@ -251,9 +251,10 @@ namespace NeralSample_2
             initWeightOutput[2] = -0.2;
 
             int n = 0;
+            int numbetOfSet = setPatternInput.Length;
             do
             {
-                for (int i = 0; i < numberOfPattern; i++)
+                for (int i = 0; i < numbetOfSet; i++)
                 {
                     //trainOnePattern(valueOfInputNode[i], valueExpectOutput[i]);
                     trainOnePattern(setPatternInput[i], setPatternOutput[i], initWeightHidden, initWeightOutput);
@@ -301,17 +302,17 @@ namespace NeralSample_2
             for (int i = 0; i < numberOfHiddenNode; i++)
             {
                 arrHiddenWeights[i] = new HiddenWeight();
-                arrHiddenWeights[i].w0 = initWeightHidden[i][0];
-                arrHiddenWeights[i].w1 = initWeightHidden[i][1];
-                arrHiddenWeights[i].w2 = initWeightHidden[i][2];
-                arrHiddenWeights[i].w3 = initWeightHidden[i][3];
+                arrHiddenWeights[i].w0 = Math.Round(initWeightHidden[i][0], 4);
+                arrHiddenWeights[i].w1 = Math.Round(initWeightHidden[i][1], 4);
+                arrHiddenWeights[i].w2 = Math.Round(initWeightHidden[i][2], 4);
+                arrHiddenWeights[i].w3 = Math.Round(initWeightHidden[i][3], 4);
             }
 
             NeuralNetwork neuralTest = new NeuralNetwork();
 
             neuralTest.lstHiddenWeights = arrHiddenWeights;
 
-            using (StreamWriter file = File.CreateText(@"neural.json"))
+            using (StreamWriter file = File.CreateText(@"neural_" + indexOfSet.ToString() + ".json"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //serializer.Serialize(file, o);
@@ -458,8 +459,10 @@ namespace NeralSample_2
                 }
             }
 
-            MessageBox.Show("cluster finished!!");
-            //trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
+            //MessageBox.Show("cluster finished!!");
+            trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
+            //trainSetOfPattern(cluster_2.ToArray(), lstOutPut_2.ToArray(), 2);
+            //trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
         }
 
         private void btnJson_Click(object sender, EventArgs e)
@@ -520,6 +523,8 @@ namespace NeralSample_2
                     MessageBox.Show("sfsdf");
                 }
             }
+
+
         }
 
         private void btnCluster_Click(object sender, EventArgs e)
