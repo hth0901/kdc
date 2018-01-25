@@ -326,31 +326,6 @@ namespace NeralSample_2
 
         private void btnLoadRawData_Click(object sender, EventArgs e)
         {
-            /*using (var sr = new StreamReader(@"trainTest.csv"))
-            {
-                var reader = new CsvReader(sr);
-                IEnumerable<InputValue> records = reader.GetRecords<InputValue>();
-                List<double[]> values = new List<double[]>();
-                List<double> expectValues = new List<double>();
-                foreach (InputValue rec in records)
-                {
-                    //values.Add(rec.x10);
-                    List<double> value = new List<double>();
-                    value.Add(rec.x0);
-                    value.Add(rec.x1);
-                    value.Add(rec.x2);
-                    value.Add(rec.x3);
-                    double expect = rec.expect;
-                    values.Add(value.ToArray());
-                    expectValues.Add(expect);
-                }
-
-                numberOfPattern = values.Count;
-                valueOfInputNode = values.ToArray();
-                valueExpectOutput = expectValues.ToArray();
-
-                MessageBox.Show("Loaded!!");
-            }*/
             this.openFileDialog1.FileName = "*.csv";
             if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -369,6 +344,20 @@ namespace NeralSample_2
                         value.Add(rec.x1);
                         value.Add(rec.x2);
                         value.Add(rec.x3);
+                        value.Add(rec.x4);
+                        value.Add(rec.x5);
+                        value.Add(rec.x6);
+                        value.Add(rec.x7);
+                        value.Add(rec.x8);
+                        value.Add(rec.x9);
+                        value.Add(rec.x10);
+                        value.Add(rec.x11);
+                        value.Add(rec.x12);
+                        value.Add(rec.x13);
+                        value.Add(rec.x14);
+                        value.Add(rec.x15);
+                        value.Add(rec.x16);
+                        value.Add(rec.x17);
                         double expect = rec.expect;
                         values.Add(value.ToArray());
                         expectValues.Add(expect);
@@ -422,6 +411,20 @@ namespace NeralSample_2
                 arrMean[0].x1 = arrCluster[i][1];
                 arrMean[0].x2 = arrCluster[i][2];
                 arrMean[0].x3 = arrCluster[i][3];
+                arrMean[0].x4 = arrCluster[i][4];
+                arrMean[0].x5 = arrCluster[i][5];
+                arrMean[0].x6 = arrCluster[i][6];
+                arrMean[0].x7 = arrCluster[i][7];
+                arrMean[0].x8 = arrCluster[i][8];
+                arrMean[0].x9 = arrCluster[i][9];
+                arrMean[0].x10 = arrCluster[i][10];
+                arrMean[0].x11 = arrCluster[i][11];
+                arrMean[0].x12 = arrCluster[i][12];
+                arrMean[0].x13 = arrCluster[i][13];
+                arrMean[0].x14 = arrCluster[i][14];
+                arrMean[0].x15 = arrCluster[i][15];
+                arrMean[0].x16 = arrCluster[i][16];
+                arrMean[0].x17 = arrCluster[i][17];
 
                 IEnumerable<MeanCluster> data = arrMean.ToList();
                 using(var wr = new StreamWriter(fileName))
@@ -445,7 +448,7 @@ namespace NeralSample_2
 
             writeAllMeanClusters(arrMeans);
 
-            for (int i = 0; i < arrCluster.Length; i++)
+            /*for (int i = 0; i < arrCluster.Length; i++)
             {
                 if (arrCluster[i] == 0)
                 {
@@ -457,9 +460,9 @@ namespace NeralSample_2
                     cluster_2.Add(valueOfInputNode[i]);
                     lstOutPut_2.Add(valueExpectOutput[i]);
                 }
-            }
+            }*/
 
-            //MessageBox.Show("cluster finished!!");
+            MessageBox.Show("cluster finished!!");
             trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
             //trainSetOfPattern(cluster_2.ToArray(), lstOutPut_2.ToArray(), 2);
             //trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
