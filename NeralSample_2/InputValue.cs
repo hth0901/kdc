@@ -99,6 +99,41 @@ namespace NeralSample_2
             get;
             set;
         }
+        public double x18
+        {
+            get;
+            set;
+        }
+        public double x19
+        {
+            get;
+            set;
+        }
+        public double x20
+        {
+            get;
+            set;
+        }
+        public double x21
+        {
+            get;
+            set;
+        }
+        public double x22
+        {
+            get;
+            set;
+        }
+        public double x23
+        {
+            get;
+            set;
+        }
+        public double x24
+        {
+            get;
+            set;
+        }
         public double expect
         {
             get;

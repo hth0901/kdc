@@ -358,6 +358,13 @@ namespace NeralSample_2
                         value.Add(rec.x15);
                         value.Add(rec.x16);
                         value.Add(rec.x17);
+                        value.Add(rec.x18);
+                        value.Add(rec.x19);
+                        value.Add(rec.x20);
+                        value.Add(rec.x21);
+                        value.Add(rec.x22);
+                        value.Add(rec.x23);
+                        value.Add(rec.x24);
                         double expect = rec.expect;
                         values.Add(value.ToArray());
                         expectValues.Add(expect);
@@ -463,7 +470,7 @@ namespace NeralSample_2
             }*/
 
             MessageBox.Show("cluster finished!!");
-            trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
+            //trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
             //trainSetOfPattern(cluster_2.ToArray(), lstOutPut_2.ToArray(), 2);
             //trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
         }
