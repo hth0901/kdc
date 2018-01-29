@@ -54,7 +54,7 @@ namespace NeralSample_2
             return result;
         }
 
-        public void updateOutWeightValues(double deltaOutput, double[] hiddenValues, double[] arrWeightOfOutput)
+        public void updateOutWeightValues(double deltaOutput, double[] hiddenValues, ref double[] arrWeightOfOutput)
         {
             for (int i = 0; i < arrWeightOfOutput.Length; i++)
             {
@@ -62,7 +62,7 @@ namespace NeralSample_2
             }
         }
 
-        public void updateHiddenWeightValues(double[] deltaHiddens, double[][] arrWeightOfHidden, double[] arrInputValues)
+        public void updateHiddenWeightValues(double[] deltaHiddens, ref double[][] arrWeightOfHidden, double[] arrInputValues)
         {
             for (int j = 0; j < arrWeightOfHidden.Length; j++)
             {
@@ -73,10 +73,10 @@ namespace NeralSample_2
             }
         }
 
-        public void updateAllWeights(double[] arrInputValues, double nOutputValue, double nOutputExpect, double[] arrHiddenValues, double[][] arrWeightOfHidden, double[] arrWeightOfOutput)
+        public void updateAllWeights(double[] arrInputValues, double nOutputValue, double nOutputExpect, double[] arrHiddenValues, ref double[][] arrWeightOfHidden, ref double[] arrWeightOfOutput)
         {
             double deltaOutput = calDeltaOutput(nOutputValue, nOutputExpect);
-            deltaOutput = Math.Round(deltaOutput, 4);
+            deltaOutput = Math.Round(deltaOutput, 6);
 
             double[] deltaHidden = new double[numberOfHiddenNode];
             for (int i = 0; i < deltaHidden.Length; i++)
@@ -85,8 +85,8 @@ namespace NeralSample_2
                 deltaHidden[i] = calDelHidden(arrHiddenValues[index], index, deltaOutput, arrWeightOfOutput);
             }
 
-            updateOutWeightValues(deltaOutput, arrHiddenValues, arrWeightOfOutput);
-            updateHiddenWeightValues(deltaHidden, arrWeightOfHidden, arrInputValues);
+            updateOutWeightValues(deltaOutput, arrHiddenValues, ref arrWeightOfOutput);
+            updateHiddenWeightValues(deltaHidden, ref arrWeightOfHidden, arrInputValues);
             double e = 0;
         }
 
@@ -109,17 +109,18 @@ namespace NeralSample_2
                 {
                     hiddenValues[i] = calNodeValue(netWeightFromInput[i - 1]);
                 }
-                hiddenValues[i] = Math.Round(hiddenValues[i], 3);
+                hiddenValues[i] = Math.Round(hiddenValues[i], 6);
             }
 
             double netWeightFromHidden = calNetWeight(outputWeight, hiddenValues);
             double outputValue = calNodeValue(netWeightFromHidden);
-            outputValue = Math.Round(outputValue, 3);
+            outputValue = Math.Round(outputValue, 6);
             result = outputValue;
             return outputValue;
         }
 
-        public void trainOnePattern(double[] inputValues, double outputExpect, double[][] arrWeightOfHidden, double[] arrWeightOfOutput)
+        //public void trainOnePattern(double[] inputValues, double outputExpect, double[][] arrWeightOfHidden, double[] arrWeightOfOutput)
+        public double trainOnePattern(double[] inputValues, double outputExpect, ref double[][] arrWeightOfHidden, ref double[] arrWeightOfOutput)
         {
             double result = 0;
 
@@ -138,12 +139,12 @@ namespace NeralSample_2
                 {
                     hiddenValues[i] = calNodeValue(netWeightFromInput[i - 1]);
                 }
-                hiddenValues[i] = Math.Round(hiddenValues[i], 3);
+                hiddenValues[i] = Math.Round(hiddenValues[i], 6);
             }
 
             double netWeightFromHidden = calNetWeight(arrWeightOfOutput, hiddenValues);
             double outputValue = calNodeValue(netWeightFromHidden);
-            outputValue = Math.Round(outputValue, 3);
+            outputValue = Math.Round(outputValue, 6);
 
             result = outputValue;
 
@@ -160,7 +161,8 @@ namespace NeralSample_2
             updateOutWeightValues(deltaOutput, hiddenValues);
             updateHiddenWeightValues(deltaHidden);*/
 
-            updateAllWeights(inputValues, outputValue, outputExpect, hiddenValues, arrWeightOfHidden, arrWeightOfOutput);
+            updateAllWeights(inputValues, outputValue, outputExpect, hiddenValues, ref arrWeightOfHidden, ref arrWeightOfOutput);
+            return result;
         }
         public FormSample()
         {
@@ -232,10 +234,35 @@ namespace NeralSample_2
 
         private void trainSetOfPattern(double[][] setPatternInput, double[] setPatternOutput, int indexOfSet)
         {
-            double[][] initWeightHidden = new double[numberOfHiddenNode][];
+            double min = -1.2;
+            double max = 1.2;
+            numberOfHiddenNode = 10;
+            /*double[][] initWeightHidden = new double[numberOfHiddenNode][];
+            Random rnd = new Random();
             for (int i = 0; i < initWeightHidden.Length; i++)
+            {
                 initWeightHidden[i] = new double[numberOfInputNode + 1];
-            initWeightHidden[0][0] = -0.4;
+                for (int k = 0; k < initWeightHidden[i].Length; k++)
+                {
+                    double rndNum = rnd.NextDouble() * (max - min) + min;
+                    //initWeightHidden[i][k] = rnd.NextDouble();
+                    initWeightHidden[i][k] = Math.Round(rndNum, 5);
+                }
+            }*/
+
+            double[][] initWeightHidden = { 
+                new double[] { -0.4,  0.2,  0.4, -0.5,  0.3,  0.1,  0.6,  0.8,   0.5,  1.5,  -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,  1.5, -1.6,   0.45, -0.35,  0.61, 0.75, -1.2,  0.5 },                                                   
+                new double[] {  0.3,  0.1,  0.6,  0.8,  0.5,  1.5, -1.6,  0.45, -0.35, 0.61,  0.75, -1.2,   0.5,   1.5,  -1.6,   0.45, -0.12, 0.25, 0.23, -0.71,  0.35, -0.15, 0.31,  0.5, -0.67 },
+                new double[] { -0.4,  0.2,  0.4, -0.5,  0.3,  0.1,  0.6,  0.8,   0.5,  1.5,  -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,  1.5, -1.6,   0.45, -0.35,  0.61, 0.75, -1.2,  0.5 },                                                   
+                new double[] { -0.4,  0.2,  0.4, -0.5,  0.3,  0.1,  0.6,  0.8,   0.5,  1.5,  -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,  1.5, -1.6,   0.45, -0.35,  0.61, 0.75, -1.2,  0.5 },                                                   
+                new double[] {  0.3,  0.1,  0.6,  0.8,  0.5,  1.5, -1.6,  0.45, -0.35, 0.61,  0.75, -1.2,   0.5,   1.5,  -1.6,   0.45, -0.12, 0.25, 0.23, -0.71,  0.35, -0.15, 0.31,  0.5, -0.67 },
+                new double[] { -0.4,  0.2,  0.4, -0.5,  0.3,  0.1,  0.6,  0.8,   0.5,  1.5,  -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,  1.5, -1.6,   0.45, -0.35,  0.61, 0.75, -1.2,  0.5 },                                                   
+                new double[] {  0.3,  0.1,  0.6,  0.8,  0.5,  1.5, -1.6,  0.45, -0.35, 0.61,  0.75, -1.2,   0.5,   1.5,  -1.6,   0.45, -0.12, 0.25, 0.23, -0.71,  0.35, -0.15, 0.31,  0.5, -0.67 },
+                new double[] { -0.4,  0.2,  0.4, -0.5,  0.3,  0.1,  0.6,  0.8,   0.5,  1.5,  -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,  1.5, -1.6,   0.45, -0.35,  0.61, 0.75, -1.2,  0.5 },                                                   
+                new double[] {  0.3,  0.1,  0.6,  0.8,  0.5,  1.5, -1.6,  0.45, -0.35, 0.61,  0.75, -1.2,   0.5,   1.5,  -1.6,   0.45, -0.12, 0.25, 0.23, -0.71,  0.35, -0.15, 0.31,  0.5, -0.67 },
+                new double[] {  0.2, -0.3,  0.1,  0.2,  1.4, -1.3,  0.3,  0.1,   1.5, -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,   0.6,  0.8,  0.5,   0.45, -1.8,   0.8,  0.4,  -0.7,  0.5 }
+            };
+            /*initWeightHidden[0][0] = -0.4;
             initWeightHidden[0][1] = 0.2;
             initWeightHidden[0][2] = 0.4;
             initWeightHidden[0][3] = -0.5;
@@ -243,69 +270,48 @@ namespace NeralSample_2
             initWeightHidden[1][0] = 0.2;
             initWeightHidden[1][1] = -0.3;
             initWeightHidden[1][2] = 0.1;
-            initWeightHidden[1][3] = 0.2;
+            initWeightHidden[1][3] = 0.2;*/
 
-            double[] initWeightOutput = new double[numberOfHiddenNode + 1];
-            initWeightOutput[0] = 0.1;
-            initWeightOutput[1] = -0.3;
-            initWeightOutput[2] = -0.2;
+            
+
+            /*double[] initWeightOutput = new double[numberOfHiddenNode + 1];
+            //initWeightOutput[0] = 0.1;
+            //initWeightOutput[1] = -0.3;
+            //initWeightOutput[2] = -0.2;
+            for (int i = 0; i < initWeightOutput.Length; i++)
+            {
+                double rndNum = rnd.NextDouble() * (max - min) + min;
+                initWeightOutput[i] = Math.Round(rndNum, 5);
+            }*/
+
+            double[] initWeightOutput = { 0.1, 0.2, 0.6, -0.7, -0.3, -0.2, 0.25, 0.1, -0.3, -0.2, 0.25 };
 
             int n = 0;
             int numbetOfSet = setPatternInput.Length;
+
+            double[] arrOutput = new double[numbetOfSet];
+
             do
             {
                 for (int i = 0; i < numbetOfSet; i++)
                 {
                     //trainOnePattern(valueOfInputNode[i], valueExpectOutput[i]);
-                    trainOnePattern(setPatternInput[i], setPatternOutput[i], initWeightHidden, initWeightOutput);
+                    //trainOnePattern(setPatternInput[i], setPatternOutput[i], initWeightHidden, initWeightOutput);
+                    arrOutput[i] = trainOnePattern(setPatternInput[i], setPatternOutput[i], ref initWeightHidden, ref initWeightOutput);
+                    double hihihaha = 1.2;
                 }
-                n = n + 1;
+                n++;
             }
-            while (n < 1);
-
-            /*for (int i = 0; i < initWeightHidden.Length; i++)
-            {
-                string fileName = "hiddenWeight" + indexOfSet.ToString() + (i + 1).ToString();
-                List<HiddenWeight> list = new List<HiddenWeight>();
-                HiddenWeight item = new HiddenWeight();
-                item.w0 = initWeightHidden[i][0];
-                item.w1 = initWeightHidden[i][1];
-                item.w2 = initWeightHidden[i][2];
-                item.w3 = initWeightHidden[i][3];
-                list.Add(item);
-
-                IEnumerable<object> weights = list;
-
-                using (var wr = new StreamWriter(fileName))
-                {
-                    var csvWriter = new CsvWriter(wr);
-                    csvWriter.WriteRecords(weights);
-                }
-            }
-
-            string fileOutWeight = "outWeight" + indexOfSet.ToString();
-            List<OutWeight> listOutWeight = new List<OutWeight>();
-            OutWeight outWeightItem = new OutWeight();
-            outWeightItem.w0 = initWeightOutput[0];
-            outWeightItem.w1 = initWeightOutput[1];
-            outWeightItem.w2 = initWeightOutput[2];
-            listOutWeight.Add(outWeightItem);
-            IEnumerable<object> lstOutWeight = listOutWeight;
-
-            using (var wr = new StreamWriter(fileOutWeight))
-            {
-                var csvWriter = new CsvWriter(wr);
-                csvWriter.WriteRecords(lstOutWeight);
-            }*/
+            while (n < 5000);
 
             HiddenWeight[] arrHiddenWeights = new HiddenWeight[2];
             for (int i = 0; i < numberOfHiddenNode; i++)
             {
                 arrHiddenWeights[i] = new HiddenWeight();
-                arrHiddenWeights[i].w0 = Math.Round(initWeightHidden[i][0], 4);
-                arrHiddenWeights[i].w1 = Math.Round(initWeightHidden[i][1], 4);
-                arrHiddenWeights[i].w2 = Math.Round(initWeightHidden[i][2], 4);
-                arrHiddenWeights[i].w3 = Math.Round(initWeightHidden[i][3], 4);
+                arrHiddenWeights[i].w0 = Math.Round(initWeightHidden[i][0], 6);
+                arrHiddenWeights[i].w1 = Math.Round(initWeightHidden[i][1], 6);
+                arrHiddenWeights[i].w2 = Math.Round(initWeightHidden[i][2], 6);
+                arrHiddenWeights[i].w3 = Math.Round(initWeightHidden[i][3], 6);
             }
 
             NeuralNetwork neuralTest = new NeuralNetwork();
@@ -374,6 +380,8 @@ namespace NeralSample_2
                     valueOfInputNode = values.ToArray();
                     valueExpectOutput = expectValues.ToArray();
 
+                    numberOfInputNode = 24;
+
                     MessageBox.Show("Loaded!!");
                 }
             }
@@ -414,7 +422,7 @@ namespace NeralSample_2
                 string fileName = @"cluster_" + clusterIndex.ToString() + ".csv";
                 MeanCluster[] arrMean = new MeanCluster[1];
                 arrMean[0] = new MeanCluster();
-                arrMean[0].x0 = arrCluster[i][0];
+                arrMean[0].x0 = Math.Round(arrCluster[i][0], 6);
                 arrMean[0].x1 = arrCluster[i][1];
                 arrMean[0].x2 = arrCluster[i][2];
                 arrMean[0].x3 = arrCluster[i][3];
@@ -432,6 +440,13 @@ namespace NeralSample_2
                 arrMean[0].x15 = arrCluster[i][15];
                 arrMean[0].x16 = arrCluster[i][16];
                 arrMean[0].x17 = arrCluster[i][17];
+                arrMean[0].x18 = arrCluster[i][18];
+                arrMean[0].x19 = arrCluster[i][19];
+                arrMean[0].x20 = arrCluster[i][20];
+                arrMean[0].x21 = arrCluster[i][21];
+                arrMean[0].x22 = arrCluster[i][22];
+                arrMean[0].x23 = arrCluster[i][23];
+                arrMean[0].x24 = arrCluster[i][24];
 
                 IEnumerable<MeanCluster> data = arrMean.ToList();
                 using(var wr = new StreamWriter(fileName))
@@ -455,7 +470,7 @@ namespace NeralSample_2
 
             writeAllMeanClusters(arrMeans);
 
-            /*for (int i = 0; i < arrCluster.Length; i++)
+            for (int i = 0; i < arrCluster.Length; i++)
             {
                 if (arrCluster[i] == 0)
                 {
@@ -467,12 +482,12 @@ namespace NeralSample_2
                     cluster_2.Add(valueOfInputNode[i]);
                     lstOutPut_2.Add(valueExpectOutput[i]);
                 }
-            }*/
+            }
 
             MessageBox.Show("cluster finished!!");
             //trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
             //trainSetOfPattern(cluster_2.ToArray(), lstOutPut_2.ToArray(), 2);
-            //trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
+            trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
         }
 
         private void btnJson_Click(object sender, EventArgs e)

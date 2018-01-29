@@ -234,8 +234,8 @@ namespace ANN_API
                             hds[j][i] = hds[j][i] + (Lrate * deltaHidden[j] * train[k][i]);
                             
                         }
-                    }                       
-                    
+                    }
+                    double hihihaha = 1.2;
                 }
                 
                 for (int i = 0; i < listView1.Items.Count; i++)
