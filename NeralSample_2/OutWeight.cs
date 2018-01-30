@@ -24,5 +24,45 @@ namespace NeralSample_2
             get;
             set;
         }
+        public double w3
+        {
+            get;
+            set;
+        }
+        public double w4
+        {
+            get;
+            set;
+        }
+        public double w5
+        {
+            get;
+            set;
+        }
+        public double w6
+        {
+            get;
+            set;
+        }
+        public double w7
+        {
+            get;
+            set;
+        }
+        public double w8
+        {
+            get;
+            set;
+        }
+        public double w9
+        {
+            get;
+            set;
+        }
+        public double w10
+        {
+            get;
+            set;
+        }
     }
 }

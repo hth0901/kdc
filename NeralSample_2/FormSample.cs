@@ -76,7 +76,7 @@ namespace NeralSample_2
         public void updateAllWeights(double[] arrInputValues, double nOutputValue, double nOutputExpect, double[] arrHiddenValues, ref double[][] arrWeightOfHidden, ref double[] arrWeightOfOutput)
         {
             double deltaOutput = calDeltaOutput(nOutputValue, nOutputExpect);
-            //deltaOutput = Math.Round(deltaOutput, 6);
+            deltaOutput = Math.Round(deltaOutput, 6);
 
             double[] deltaHidden = new double[numberOfHiddenNode];
             for (int i = 0; i < deltaHidden.Length; i++)
@@ -109,12 +109,12 @@ namespace NeralSample_2
                 {
                     hiddenValues[i] = calNodeValue(netWeightFromInput[i - 1]);
                 }
-                //hiddenValues[i] = Math.Round(hiddenValues[i], 6);
+                hiddenValues[i] = Math.Round(hiddenValues[i], 6);
             }
 
             double netWeightFromHidden = calNetWeight(outputWeight, hiddenValues);
             double outputValue = calNodeValue(netWeightFromHidden);
-            //outputValue = Math.Round(outputValue, 6);
+            outputValue = Math.Round(outputValue, 6);
             result = outputValue;
             return outputValue;
         }
@@ -139,12 +139,12 @@ namespace NeralSample_2
                 {
                     hiddenValues[i] = calNodeValue(netWeightFromInput[i - 1]);
                 }
-                //hiddenValues[i] = Math.Round(hiddenValues[i], 6);
+                hiddenValues[i] = Math.Round(hiddenValues[i], 6);
             }
 
             double netWeightFromHidden = calNetWeight(arrWeightOfOutput, hiddenValues);
             double outputValue = calNodeValue(netWeightFromHidden);
-            //outputValue = Math.Round(outputValue, 6);
+            outputValue = Math.Round(outputValue, 6);
 
             result = outputValue;
 
@@ -293,19 +293,61 @@ namespace NeralSample_2
 
             do
             {
-                for (int i = 0; i < numbetOfSet; i++)
+                for (int index = 0; index < numbetOfSet; index++)
                 {
                     //trainOnePattern(valueOfInputNode[i], valueExpectOutput[i]);
                     //trainOnePattern(setPatternInput[i], setPatternOutput[i], initWeightHidden, initWeightOutput);
-                    arrOutput[i] = trainOnePattern(setPatternInput[i], setPatternOutput[i], ref initWeightHidden, ref initWeightOutput);
+                    //arrOutput[index] = trainOnePattern(setPatternInput[index], setPatternOutput[index], ref initWeightHidden, ref initWeightOutput);
                     //double hihihaha = 1.2;
 
+                    //forward phase
+                    double result = 0;
+                    double[] netWeightFromInput = new double[numberOfHiddenNode];
+                    for (int i = 0; i < netWeightFromInput.Length; i++)
+                    {
+                        netWeightFromInput[i] = calNetWeight(initWeightHidden[i], setPatternInput[index]);
+                    }
+
+                    double[] hiddenValues = new double[numberOfHiddenNode + 1];
+                    for (int i = 0; i < hiddenValues.Length; i++)
+                    {
+                        if (i == 0)
+                            hiddenValues[i] = 1;
+                        else
+                            hiddenValues[i] = calNodeValue(netWeightFromInput[i - 1]);
+                    }
+
+                    double netWeightFromHidden = calNetWeight(initWeightOutput, hiddenValues);
+                    double outputValue = calNodeValue(netWeightFromHidden);
+
+                    //backward phase
+                    //cal delta values
+                    double deltaOutPut = calDeltaOutput(outputValue, setPatternOutput[index]);
+                    double[] deltaHidden = new double[numberOfHiddenNode];
+                    for (int i = 0; i < deltaHidden.Length; i++)
+                    {
+                        deltaHidden[i] = hiddenValues[i + 1] * (1 - hiddenValues[i + 1]) * initWeightOutput[i + 1] * deltaOutPut;
+                    }
+                    //update all weights
+                    //update output weights
+                    for (int i = 0; i < initWeightOutput.Length; i++)
+                    {
+                        initWeightOutput[i] = initWeightOutput[i] + learningRate * deltaOutPut * hiddenValues[i];
+                    }
+                    //update hidden weights
+                    for (int i = 0; i < initWeightHidden.Length; i++)
+                        for (int j = 0; j < initWeightHidden[i].Length; j++)
+                        {
+                            initWeightHidden[i][j] = initWeightHidden[i][j] + (learningRate * deltaHidden[i] * setPatternInput[index][j]);
+                        }
+
+                    arrOutput[index] = outputValue;
                 }
                 n++;
             }
-            while (n < 1000);
+            while (n < 5000);
 
-            HiddenWeight[] arrHiddenWeights = new HiddenWeight[2];
+            HiddenWeight[] arrHiddenWeights = new HiddenWeight[numberOfHiddenNode];
             for (int i = 0; i < numberOfHiddenNode; i++)
             {
                 arrHiddenWeights[i] = new HiddenWeight();
@@ -313,11 +355,46 @@ namespace NeralSample_2
                 arrHiddenWeights[i].w1 = Math.Round(initWeightHidden[i][1], 6);
                 arrHiddenWeights[i].w2 = Math.Round(initWeightHidden[i][2], 6);
                 arrHiddenWeights[i].w3 = Math.Round(initWeightHidden[i][3], 6);
+                arrHiddenWeights[i].w4 = Math.Round(initWeightHidden[i][4], 6);
+                arrHiddenWeights[i].w5 = Math.Round(initWeightHidden[i][5], 6);
+                arrHiddenWeights[i].w6 = Math.Round(initWeightHidden[i][6], 6);
+                arrHiddenWeights[i].w7 = Math.Round(initWeightHidden[i][7], 6);
+                arrHiddenWeights[i].w8 = Math.Round(initWeightHidden[i][8], 6);
+                arrHiddenWeights[i].w9 = Math.Round(initWeightHidden[i][9], 6);
+                arrHiddenWeights[i].w10 = Math.Round(initWeightHidden[i][10], 6);
+                arrHiddenWeights[i].w11 = Math.Round(initWeightHidden[i][11], 6);
+                arrHiddenWeights[i].w12 = Math.Round(initWeightHidden[i][12], 6);
+                arrHiddenWeights[i].w13 = Math.Round(initWeightHidden[i][13], 6);
+                arrHiddenWeights[i].w14 = Math.Round(initWeightHidden[i][14], 6);
+                arrHiddenWeights[i].w15 = Math.Round(initWeightHidden[i][15], 6);
+                arrHiddenWeights[i].w16 = Math.Round(initWeightHidden[i][16], 6);
+                arrHiddenWeights[i].w17 = Math.Round(initWeightHidden[i][17], 6);
+                arrHiddenWeights[i].w18 = Math.Round(initWeightHidden[i][18], 6);
+                arrHiddenWeights[i].w19 = Math.Round(initWeightHidden[i][19], 6);
+                arrHiddenWeights[i].w20 = Math.Round(initWeightHidden[i][20], 6);
+                arrHiddenWeights[i].w21 = Math.Round(initWeightHidden[i][21], 6);
+                arrHiddenWeights[i].w22 = Math.Round(initWeightHidden[i][22], 6);
+                arrHiddenWeights[i].w23 = Math.Round(initWeightHidden[i][23], 6);
+                arrHiddenWeights[i].w24 = Math.Round(initWeightHidden[i][24], 6);
             }
+
+            OutWeight outputWeight = new OutWeight();
+            outputWeight.w0 = Math.Round(initWeightOutput[0]);
+            outputWeight.w1 = Math.Round(initWeightOutput[1]);
+            outputWeight.w2 = Math.Round(initWeightOutput[2]);
+            outputWeight.w3 = Math.Round(initWeightOutput[3]);
+            outputWeight.w4 = Math.Round(initWeightOutput[4]);
+            outputWeight.w5 = Math.Round(initWeightOutput[5]);
+            outputWeight.w6 = Math.Round(initWeightOutput[6]);
+            outputWeight.w7 = Math.Round(initWeightOutput[7]);
+            outputWeight.w8 = Math.Round(initWeightOutput[8]);
+            outputWeight.w9 = Math.Round(initWeightOutput[9]);
+            outputWeight.w10 = Math.Round(initWeightOutput[10]);
 
             NeuralNetwork neuralTest = new NeuralNetwork();
 
             neuralTest.lstHiddenWeights = arrHiddenWeights;
+            neuralTest.outputWeight = outputWeight;
 
             using (StreamWriter file = File.CreateText(@"neural_" + indexOfSet.ToString() + ".json"))
             {
@@ -486,9 +563,9 @@ namespace NeralSample_2
             }
 
             MessageBox.Show("cluster finished!!");
-            //trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
-            //trainSetOfPattern(cluster_2.ToArray(), lstOutPut_2.ToArray(), 2);
-            trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
+            trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
+            trainSetOfPattern(cluster_2.ToArray(), lstOutPut_2.ToArray(), 2);
+            //trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
         }
 
         private void btnJson_Click(object sender, EventArgs e)
