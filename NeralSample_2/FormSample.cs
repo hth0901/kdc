@@ -76,7 +76,7 @@ namespace NeralSample_2
         public void updateAllWeights(double[] arrInputValues, double nOutputValue, double nOutputExpect, double[] arrHiddenValues, ref double[][] arrWeightOfHidden, ref double[] arrWeightOfOutput)
         {
             double deltaOutput = calDeltaOutput(nOutputValue, nOutputExpect);
-            deltaOutput = Math.Round(deltaOutput, 6);
+            //deltaOutput = Math.Round(deltaOutput, 6);
 
             double[] deltaHidden = new double[numberOfHiddenNode];
             for (int i = 0; i < deltaHidden.Length; i++)
@@ -109,12 +109,12 @@ namespace NeralSample_2
                 {
                     hiddenValues[i] = calNodeValue(netWeightFromInput[i - 1]);
                 }
-                hiddenValues[i] = Math.Round(hiddenValues[i], 6);
+                //hiddenValues[i] = Math.Round(hiddenValues[i], 6);
             }
 
             double netWeightFromHidden = calNetWeight(outputWeight, hiddenValues);
             double outputValue = calNodeValue(netWeightFromHidden);
-            outputValue = Math.Round(outputValue, 6);
+            //outputValue = Math.Round(outputValue, 6);
             result = outputValue;
             return outputValue;
         }
@@ -139,12 +139,12 @@ namespace NeralSample_2
                 {
                     hiddenValues[i] = calNodeValue(netWeightFromInput[i - 1]);
                 }
-                hiddenValues[i] = Math.Round(hiddenValues[i], 6);
+                //hiddenValues[i] = Math.Round(hiddenValues[i], 6);
             }
 
             double netWeightFromHidden = calNetWeight(arrWeightOfOutput, hiddenValues);
             double outputValue = calNodeValue(netWeightFromHidden);
-            outputValue = Math.Round(outputValue, 6);
+            //outputValue = Math.Round(outputValue, 6);
 
             result = outputValue;
 
@@ -298,11 +298,12 @@ namespace NeralSample_2
                     //trainOnePattern(valueOfInputNode[i], valueExpectOutput[i]);
                     //trainOnePattern(setPatternInput[i], setPatternOutput[i], initWeightHidden, initWeightOutput);
                     arrOutput[i] = trainOnePattern(setPatternInput[i], setPatternOutput[i], ref initWeightHidden, ref initWeightOutput);
-                    double hihihaha = 1.2;
+                    //double hihihaha = 1.2;
+
                 }
                 n++;
             }
-            while (n < 5000);
+            while (n < 1000);
 
             HiddenWeight[] arrHiddenWeights = new HiddenWeight[2];
             for (int i = 0; i < numberOfHiddenNode; i++)
