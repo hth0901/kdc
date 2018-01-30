@@ -378,9 +378,23 @@ namespace NeralSample_2
                 arrHiddenWeights[i].w24 = Math.Round(initWeightHidden[i][24], 6);
             }
 
+            OutWeight outputWeight = new OutWeight();
+            outputWeight.w0 = Math.Round(initWeightOutput[0]);
+            outputWeight.w1 = Math.Round(initWeightOutput[1]);
+            outputWeight.w2 = Math.Round(initWeightOutput[2]);
+            outputWeight.w3 = Math.Round(initWeightOutput[3]);
+            outputWeight.w4 = Math.Round(initWeightOutput[4]);
+            outputWeight.w5 = Math.Round(initWeightOutput[5]);
+            outputWeight.w6 = Math.Round(initWeightOutput[6]);
+            outputWeight.w7 = Math.Round(initWeightOutput[7]);
+            outputWeight.w8 = Math.Round(initWeightOutput[8]);
+            outputWeight.w9 = Math.Round(initWeightOutput[9]);
+            outputWeight.w10 = Math.Round(initWeightOutput[10]);
+
             NeuralNetwork neuralTest = new NeuralNetwork();
 
             neuralTest.lstHiddenWeights = arrHiddenWeights;
+            neuralTest.outputWeight = outputWeight;
 
             using (StreamWriter file = File.CreateText(@"neural_" + indexOfSet.ToString() + ".json"))
             {

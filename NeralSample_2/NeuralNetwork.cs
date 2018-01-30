@@ -34,5 +34,10 @@ namespace NeralSample_2
             get;
             set;
         }
+        public OutWeight outputWeight
+        {
+            get;
+            set;
+        }
     }
 }
