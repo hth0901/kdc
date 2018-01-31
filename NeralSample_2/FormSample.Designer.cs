@@ -31,11 +31,10 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.btnLoadRawData = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnWriteFile = new System.Windows.Forms.Button();
             this.btnTrain = new System.Windows.Forms.Button();
-            this.btnJson = new System.Windows.Forms.Button();
             this.btnOpenJson = new System.Windows.Forms.Button();
-            this.btnCluster = new System.Windows.Forms.Button();
+            this.btnCluster_1 = new System.Windows.Forms.Button();
+            this.btnCluster_2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTest
@@ -62,35 +61,15 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnWriteFile
-            // 
-            this.btnWriteFile.Location = new System.Drawing.Point(53, 98);
-            this.btnWriteFile.Name = "btnWriteFile";
-            this.btnWriteFile.Size = new System.Drawing.Size(75, 23);
-            this.btnWriteFile.TabIndex = 2;
-            this.btnWriteFile.Text = "Write";
-            this.btnWriteFile.UseVisualStyleBackColor = true;
-            this.btnWriteFile.Click += new System.EventHandler(this.btnWriteFile_Click);
-            // 
             // btnTrain
             // 
-            this.btnTrain.Location = new System.Drawing.Point(53, 160);
+            this.btnTrain.Location = new System.Drawing.Point(28, 63);
             this.btnTrain.Name = "btnTrain";
             this.btnTrain.Size = new System.Drawing.Size(75, 23);
             this.btnTrain.TabIndex = 3;
             this.btnTrain.Text = "Train";
             this.btnTrain.UseVisualStyleBackColor = true;
             this.btnTrain.Click += new System.EventHandler(this.btnTrain_Click);
-            // 
-            // btnJson
-            // 
-            this.btnJson.Location = new System.Drawing.Point(179, 144);
-            this.btnJson.Name = "btnJson";
-            this.btnJson.Size = new System.Drawing.Size(75, 23);
-            this.btnJson.TabIndex = 4;
-            this.btnJson.Text = "JSON";
-            this.btnJson.UseVisualStyleBackColor = true;
-            this.btnJson.Click += new System.EventHandler(this.btnJson_Click);
             // 
             // btnOpenJson
             // 
@@ -102,26 +81,35 @@
             this.btnOpenJson.UseVisualStyleBackColor = true;
             this.btnOpenJson.Click += new System.EventHandler(this.btnOpenJson_Click);
             // 
-            // btnCluster
+            // btnCluster_1
             // 
-            this.btnCluster.Location = new System.Drawing.Point(179, 78);
-            this.btnCluster.Name = "btnCluster";
-            this.btnCluster.Size = new System.Drawing.Size(75, 23);
-            this.btnCluster.TabIndex = 6;
-            this.btnCluster.Text = "Cluster";
-            this.btnCluster.UseVisualStyleBackColor = true;
-            this.btnCluster.Click += new System.EventHandler(this.btnCluster_Click);
+            this.btnCluster_1.Location = new System.Drawing.Point(28, 103);
+            this.btnCluster_1.Name = "btnCluster_1";
+            this.btnCluster_1.Size = new System.Drawing.Size(89, 23);
+            this.btnCluster_1.TabIndex = 6;
+            this.btnCluster_1.Text = "Open Cluster 1";
+            this.btnCluster_1.UseVisualStyleBackColor = true;
+            this.btnCluster_1.Click += new System.EventHandler(this.btnCluster_1_Click);
+            // 
+            // btnCluster_2
+            // 
+            this.btnCluster_2.Location = new System.Drawing.Point(28, 145);
+            this.btnCluster_2.Name = "btnCluster_2";
+            this.btnCluster_2.Size = new System.Drawing.Size(89, 23);
+            this.btnCluster_2.TabIndex = 7;
+            this.btnCluster_2.Text = "Open Cluster 2\r\n";
+            this.btnCluster_2.UseVisualStyleBackColor = true;
+            this.btnCluster_2.Click += new System.EventHandler(this.btnCluster_2_Click);
             // 
             // FormSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.btnCluster);
+            this.Controls.Add(this.btnCluster_2);
+            this.Controls.Add(this.btnCluster_1);
             this.Controls.Add(this.btnOpenJson);
-            this.Controls.Add(this.btnJson);
             this.Controls.Add(this.btnTrain);
-            this.Controls.Add(this.btnWriteFile);
             this.Controls.Add(this.btnLoadRawData);
             this.Controls.Add(this.btnTest);
             this.Name = "FormSample";
@@ -135,11 +123,10 @@
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnLoadRawData;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnWriteFile;
         private System.Windows.Forms.Button btnTrain;
-        private System.Windows.Forms.Button btnJson;
         private System.Windows.Forms.Button btnOpenJson;
-        private System.Windows.Forms.Button btnCluster;
+        private System.Windows.Forms.Button btnCluster_1;
+        private System.Windows.Forms.Button btnCluster_2;
     }
 }
 

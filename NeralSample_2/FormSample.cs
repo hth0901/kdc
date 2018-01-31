@@ -27,6 +27,10 @@ namespace NeralSample_2
         private double[] valueExpectOutput = new double[numberOfPattern];
         private double[][] hiddenWeight = new double[numberOfHiddenNode][];
         private double[] outputWeight = new double[numberOfHiddenNode + 1];
+        private double[] cluster_1;
+        private double[] cluster_2;
+        private NeuralNetwork neural_1 = new NeuralNetwork();
+        private NeuralNetwork neural_2 = new NeuralNetwork();
 
         public double calNetWeight(double[] weightValues, double[] nodeValues)
         {
@@ -345,7 +349,7 @@ namespace NeralSample_2
                 }
                 n++;
             }
-            while (n < 5000);
+            while (n < 1000);
 
             HiddenWeight[] arrHiddenWeights = new HiddenWeight[numberOfHiddenNode];
             for (int i = 0; i < numberOfHiddenNode; i++)
@@ -379,17 +383,17 @@ namespace NeralSample_2
             }
 
             OutWeight outputWeight = new OutWeight();
-            outputWeight.w0 = Math.Round(initWeightOutput[0]);
-            outputWeight.w1 = Math.Round(initWeightOutput[1]);
-            outputWeight.w2 = Math.Round(initWeightOutput[2]);
-            outputWeight.w3 = Math.Round(initWeightOutput[3]);
-            outputWeight.w4 = Math.Round(initWeightOutput[4]);
-            outputWeight.w5 = Math.Round(initWeightOutput[5]);
-            outputWeight.w6 = Math.Round(initWeightOutput[6]);
-            outputWeight.w7 = Math.Round(initWeightOutput[7]);
-            outputWeight.w8 = Math.Round(initWeightOutput[8]);
-            outputWeight.w9 = Math.Round(initWeightOutput[9]);
-            outputWeight.w10 = Math.Round(initWeightOutput[10]);
+            outputWeight.w0 = Math.Round(initWeightOutput[0], 6);
+            outputWeight.w1 = Math.Round(initWeightOutput[1], 6);
+            outputWeight.w2 = Math.Round(initWeightOutput[2], 6);
+            outputWeight.w3 = Math.Round(initWeightOutput[3], 6);
+            outputWeight.w4 = Math.Round(initWeightOutput[4], 6);
+            outputWeight.w5 = Math.Round(initWeightOutput[5], 6);
+            outputWeight.w6 = Math.Round(initWeightOutput[6], 6);
+            outputWeight.w7 = Math.Round(initWeightOutput[7], 6);
+            outputWeight.w8 = Math.Round(initWeightOutput[8], 6);
+            outputWeight.w9 = Math.Round(initWeightOutput[9], 6);
+            outputWeight.w10 = Math.Round(initWeightOutput[10], 6);
 
             NeuralNetwork neuralTest = new NeuralNetwork();
 
@@ -464,34 +468,7 @@ namespace NeralSample_2
                 }
             }
         }
-
-        private void btnWriteFile_Click(object sender, EventArgs e)
-        {
-            string fileName = @"hihihaha.csv";
-            InputValue[] data = new InputValue[2];
-            data[0] = new InputValue();
-            data[0].x0 = 1;
-            data[0].x1 = 2;
-            data[0].x2 = 3;
-            data[0].x3 = 4;
-            data[0].expect = 5;
-
-            data[1] = new InputValue();
-            data[1].x0 = 11;
-            data[1].x1 = 21;
-            data[1].x2 = 31;
-            data[1].x3 = 41;
-            data[1].expect = 51;
-            IEnumerable<InputValue> test = data.ToList();
-            using(var wr = new StreamWriter(fileName))
-            {
-                var csvWriter = new CsvWriter(wr);
-                //csvWriter.WriteHeader<InputValue>();
-                //csvWriter.NextRecord();
-                csvWriter.WriteRecords(test);
-            }
-        }
-
+        
         private void writeAllMeanClusters(double[][] arrCluster)
         {
             for (int i = 0; i < arrCluster.Length; i++)
@@ -568,51 +545,6 @@ namespace NeralSample_2
             //trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
         }
 
-        private void btnJson_Click(object sender, EventArgs e)
-        {
-            HiddenWeight test = new HiddenWeight();
-            test.w0 = 0;
-            test.w1 = 1;
-            test.w2 = 2;
-            test.w3 = 3;
-
-            HiddenWeight test_2 = new HiddenWeight();
-            test_2.w0 = 02;
-            test_2.w1 = 12;
-            test_2.w2 = 22;
-            test_2.w3 = 32;
-
-            OutWeight test_3 = new OutWeight();
-            test_3.w0 = 03;
-            test_3.w1 = 13;
-            test_3.w2 = 23;
-
-            NeuralNetwork neuralTest = new NeuralNetwork();
-            //neuralTest.hidden_1 = test;
-            //neuralTest.hidden_2 = test_2;
-            //neuralTest.output = test_3;
-
-            /*string json = JsonConvert.SerializeObject(test, Formatting.Indented);
-
-            JObject o = new JObject();
-            o["hihhha"] = json;*/
-
-            HiddenWeight[] arrHiddenWeights = new HiddenWeight[2];
-            arrHiddenWeights[0] = test;
-            arrHiddenWeights[1] = test_2;
-
-            neuralTest.lstHiddenWeights = arrHiddenWeights;
-
-            using (StreamWriter file = File.CreateText(@"test.json"))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                //serializer.Serialize(file, o);
-                //serializer.Serialize(file, test_2);
-                //serializer.Serialize(file, test_3);
-                serializer.Serialize(file, neuralTest);
-            }
-        }
-
         private void btnOpenJson_Click(object sender, EventArgs e)
         {
             this.openFileDialog1.FileName = "*.json";
@@ -630,20 +562,58 @@ namespace NeralSample_2
 
         }
 
-        private void btnCluster_Click(object sender, EventArgs e)
+        private void btnCluster_1_Click(object sender, EventArgs e)
         {
-            int[] arrCluster;
-            List<double[]> cluster_1 = new List<double[]>();
-            List<double[]> cluster_2 = new List<double[]>();
-            double[][] arrMeans = k_means.MeansCal(valueOfInputNode, 2, out arrCluster);
-            for (int i = 0; i < arrCluster.Length; i++)
+            this.openFileDialog1.FileName = "*.csv";
+            if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if (arrCluster[i] == 0)
-                    cluster_1.Add(valueOfInputNode[i]);
-                else
-                    cluster_2.Add(valueOfInputNode[i]);
+                string fileName = this.openFileDialog1.FileName;
+                using (var sr = new StreamReader(fileName))
+                {
+                    var reader = new CsvReader(sr);
+                    IEnumerable<MeanCluster> records = reader.GetRecords<MeanCluster>();
+                    List<double[]> values = new List<double[]>();
+                    List<double> expectValues = new List<double>();
+                    foreach (MeanCluster rec in records)
+                    {
+                        //values.Add(rec.x10);
+                        List<double> value = new List<double>();
+                        value.Add(rec.x0);
+                        value.Add(rec.x1);
+                        value.Add(rec.x2);
+                        value.Add(rec.x3);
+                        value.Add(rec.x4);
+                        value.Add(rec.x5);
+                        value.Add(rec.x6);
+                        value.Add(rec.x7);
+                        value.Add(rec.x8);
+                        value.Add(rec.x9);
+                        value.Add(rec.x10);
+                        value.Add(rec.x11);
+                        value.Add(rec.x12);
+                        value.Add(rec.x13);
+                        value.Add(rec.x14);
+                        value.Add(rec.x15);
+                        value.Add(rec.x16);
+                        value.Add(rec.x17);
+                        value.Add(rec.x18);
+                        value.Add(rec.x19);
+                        value.Add(rec.x20);
+                        value.Add(rec.x21);
+                        value.Add(rec.x22);
+                        value.Add(rec.x23);
+                        value.Add(rec.x24);
+                        values.Add(value.ToArray());
+                    }
+
+                    MessageBox.Show("Loaded!!");
+                }
             }
-            MessageBox.Show("hiihhaha");
+        }
+
+        private void btnCluster_2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
