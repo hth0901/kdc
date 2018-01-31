@@ -277,7 +277,7 @@ namespace NeralSample_2
             double min = -1.2;
             double max = 1.2;
             numberOfHiddenNode = 10;
-            /*double[][] initWeightHidden = new double[numberOfHiddenNode][];
+            double[][] initWeightHidden = new double[numberOfHiddenNode][];
             Random rnd = new Random();
             for (int i = 0; i < initWeightHidden.Length; i++)
             {
@@ -288,9 +288,9 @@ namespace NeralSample_2
                     //initWeightHidden[i][k] = rnd.NextDouble();
                     initWeightHidden[i][k] = Math.Round(rndNum, 5);
                 }
-            }*/
+            }
 
-            double[][] initWeightHidden = { 
+            /*double[][] initWeightHidden = { 
                 new double[] { -0.4,  0.2,  0.4, -0.5,  0.3,  0.1,  0.6,  0.8,   0.5,  1.5,  -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,  1.5, -1.6,   0.45, -0.35,  0.61, 0.75, -1.2,  0.5 },                                                   
                 new double[] {  0.3,  0.1,  0.6,  0.8,  0.5,  1.5, -1.6,  0.45, -0.35, 0.61,  0.75, -1.2,   0.5,   1.5,  -1.6,   0.45, -0.12, 0.25, 0.23, -0.71,  0.35, -0.15, 0.31,  0.5, -0.67 },
                 new double[] { -0.4,  0.2,  0.4, -0.5,  0.3,  0.1,  0.6,  0.8,   0.5,  1.5,  -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,  1.5, -1.6,   0.45, -0.35,  0.61, 0.75, -1.2,  0.5 },                                                   
@@ -301,7 +301,7 @@ namespace NeralSample_2
                 new double[] { -0.4,  0.2,  0.4, -0.5,  0.3,  0.1,  0.6,  0.8,   0.5,  1.5,  -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,  1.5, -1.6,   0.45, -0.35,  0.61, 0.75, -1.2,  0.5 },                                                   
                 new double[] {  0.3,  0.1,  0.6,  0.8,  0.5,  1.5, -1.6,  0.45, -0.35, 0.61,  0.75, -1.2,   0.5,   1.5,  -1.6,   0.45, -0.12, 0.25, 0.23, -0.71,  0.35, -0.15, 0.31,  0.5, -0.67 },
                 new double[] {  0.2, -0.3,  0.1,  0.2,  1.4, -1.3,  0.3,  0.1,   1.5, -1.6,   0.45, -0.35,  0.61,  0.75, -1.2,   0.5,   0.6,  0.8,  0.5,   0.45, -1.8,   0.8,  0.4,  -0.7,  0.5 }
-            };
+            };*/
             /*initWeightHidden[0][0] = -0.4;
             initWeightHidden[0][1] = 0.2;
             initWeightHidden[0][2] = 0.4;
@@ -314,7 +314,7 @@ namespace NeralSample_2
 
             
 
-            /*double[] initWeightOutput = new double[numberOfHiddenNode + 1];
+            double[] initWeightOutput = new double[numberOfHiddenNode + 1];
             //initWeightOutput[0] = 0.1;
             //initWeightOutput[1] = -0.3;
             //initWeightOutput[2] = -0.2;
@@ -322,9 +322,9 @@ namespace NeralSample_2
             {
                 double rndNum = rnd.NextDouble() * (max - min) + min;
                 initWeightOutput[i] = Math.Round(rndNum, 5);
-            }*/
+            }
 
-            double[] initWeightOutput = { 0.1, 0.2, 0.6, -0.7, -0.3, -0.2, 0.25, 0.1, -0.3, -0.2, 0.25 };
+            //double[] initWeightOutput = { 0.1, 0.2, 0.6, -0.7, -0.3, -0.2, 0.25, 0.1, -0.3, -0.2, 0.25 };
 
             int n = 0;
             int numbetOfSet = setPatternInput.Length;
@@ -706,7 +706,11 @@ namespace NeralSample_2
             List<double> outCal = new List<double>();
             for (int i = 0; i < dataTest.Length; i++)
             {
+                double dist_1 = Helper.EuclidDistance(dataTest[i], cluster_1);
+                double dist_2 = Helper.EuclidDistance(dataTest[i], cluster_2);                
                 double value = calOutPut(dataTest[i], neural_1);
+                if (dist_1 > dist_2)
+                    value = calOutPut(dataTest[i], neural_2);
                 outCal.Add(value);
             }
             MessageBox.Show("sdfsfdsdfsdf");
