@@ -35,6 +35,9 @@
             this.btnOpenJson = new System.Windows.Forms.Button();
             this.btnCluster_1 = new System.Windows.Forms.Button();
             this.btnCluster_2 = new System.Windows.Forms.Button();
+            this.btnCalOutput = new System.Windows.Forms.Button();
+            this.btnOpenNet_1 = new System.Windows.Forms.Button();
+            this.btnOpenNet_2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTest
@@ -101,11 +104,44 @@
             this.btnCluster_2.UseVisualStyleBackColor = true;
             this.btnCluster_2.Click += new System.EventHandler(this.btnCluster_2_Click);
             // 
+            // btnCalOutput
+            // 
+            this.btnCalOutput.Location = new System.Drawing.Point(28, 205);
+            this.btnCalOutput.Name = "btnCalOutput";
+            this.btnCalOutput.Size = new System.Drawing.Size(75, 23);
+            this.btnCalOutput.TabIndex = 8;
+            this.btnCalOutput.Text = "Cal Output";
+            this.btnCalOutput.UseVisualStyleBackColor = true;
+            this.btnCalOutput.Click += new System.EventHandler(this.btnCalOutput_Click);
+            // 
+            // btnOpenNet_1
+            // 
+            this.btnOpenNet_1.Location = new System.Drawing.Point(142, 103);
+            this.btnOpenNet_1.Name = "btnOpenNet_1";
+            this.btnOpenNet_1.Size = new System.Drawing.Size(90, 23);
+            this.btnOpenNet_1.TabIndex = 9;
+            this.btnOpenNet_1.Text = "Open Neural 1";
+            this.btnOpenNet_1.UseVisualStyleBackColor = true;
+            this.btnOpenNet_1.Click += new System.EventHandler(this.btnOpenNet_1_Click);
+            // 
+            // btnOpenNet_2
+            // 
+            this.btnOpenNet_2.Location = new System.Drawing.Point(142, 145);
+            this.btnOpenNet_2.Name = "btnOpenNet_2";
+            this.btnOpenNet_2.Size = new System.Drawing.Size(90, 23);
+            this.btnOpenNet_2.TabIndex = 10;
+            this.btnOpenNet_2.Text = "Open Neural 2";
+            this.btnOpenNet_2.UseVisualStyleBackColor = true;
+            this.btnOpenNet_2.Click += new System.EventHandler(this.btnOpenNet_2_Click);
+            // 
             // FormSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnOpenNet_2);
+            this.Controls.Add(this.btnOpenNet_1);
+            this.Controls.Add(this.btnCalOutput);
             this.Controls.Add(this.btnCluster_2);
             this.Controls.Add(this.btnCluster_1);
             this.Controls.Add(this.btnOpenJson);
@@ -127,6 +163,9 @@
         private System.Windows.Forms.Button btnOpenJson;
         private System.Windows.Forms.Button btnCluster_1;
         private System.Windows.Forms.Button btnCluster_2;
+        private System.Windows.Forms.Button btnCalOutput;
+        private System.Windows.Forms.Button btnOpenNet_1;
+        private System.Windows.Forms.Button btnOpenNet_2;
     }
 }
 
