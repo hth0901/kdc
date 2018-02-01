@@ -38,6 +38,8 @@
             this.btnCalOutput = new System.Windows.Forms.Button();
             this.btnOpenNet_1 = new System.Windows.Forms.Button();
             this.btnOpenNet_2 = new System.Windows.Forms.Button();
+            this.btnCluster_3 = new System.Windows.Forms.Button();
+            this.btnOpenNet_3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTest
@@ -96,7 +98,7 @@
             // 
             // btnCluster_2
             // 
-            this.btnCluster_2.Location = new System.Drawing.Point(28, 145);
+            this.btnCluster_2.Location = new System.Drawing.Point(28, 139);
             this.btnCluster_2.Name = "btnCluster_2";
             this.btnCluster_2.Size = new System.Drawing.Size(89, 23);
             this.btnCluster_2.TabIndex = 7;
@@ -126,7 +128,7 @@
             // 
             // btnOpenNet_2
             // 
-            this.btnOpenNet_2.Location = new System.Drawing.Point(142, 145);
+            this.btnOpenNet_2.Location = new System.Drawing.Point(142, 139);
             this.btnOpenNet_2.Name = "btnOpenNet_2";
             this.btnOpenNet_2.Size = new System.Drawing.Size(90, 23);
             this.btnOpenNet_2.TabIndex = 10;
@@ -134,11 +136,33 @@
             this.btnOpenNet_2.UseVisualStyleBackColor = true;
             this.btnOpenNet_2.Click += new System.EventHandler(this.btnOpenNet_2_Click);
             // 
+            // btnCluster_3
+            // 
+            this.btnCluster_3.Location = new System.Drawing.Point(28, 176);
+            this.btnCluster_3.Name = "btnCluster_3";
+            this.btnCluster_3.Size = new System.Drawing.Size(89, 23);
+            this.btnCluster_3.TabIndex = 11;
+            this.btnCluster_3.Text = "Open Cluster 3";
+            this.btnCluster_3.UseVisualStyleBackColor = true;
+            this.btnCluster_3.Click += new System.EventHandler(this.btnCluster_3_Click);
+            // 
+            // btnOpenNet_3
+            // 
+            this.btnOpenNet_3.Location = new System.Drawing.Point(142, 176);
+            this.btnOpenNet_3.Name = "btnOpenNet_3";
+            this.btnOpenNet_3.Size = new System.Drawing.Size(90, 23);
+            this.btnOpenNet_3.TabIndex = 12;
+            this.btnOpenNet_3.Text = "Open Neural 3";
+            this.btnOpenNet_3.UseVisualStyleBackColor = true;
+            this.btnOpenNet_3.Click += new System.EventHandler(this.btnOpenNet_3_Click);
+            // 
             // FormSample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnOpenNet_3);
+            this.Controls.Add(this.btnCluster_3);
             this.Controls.Add(this.btnOpenNet_2);
             this.Controls.Add(this.btnOpenNet_1);
             this.Controls.Add(this.btnCalOutput);
@@ -166,6 +190,8 @@
         private System.Windows.Forms.Button btnCalOutput;
         private System.Windows.Forms.Button btnOpenNet_1;
         private System.Windows.Forms.Button btnOpenNet_2;
+        private System.Windows.Forms.Button btnCluster_3;
+        private System.Windows.Forms.Button btnOpenNet_3;
     }
 }
 

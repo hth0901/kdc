@@ -29,8 +29,10 @@ namespace NeralSample_2
         private double[] outputWeight = new double[numberOfHiddenNode + 1];
         private double[] cluster_1;
         private double[] cluster_2;
+        private double[] cluster_3;
         private NeuralNetwork neural_1 = new NeuralNetwork();
         private NeuralNetwork neural_2 = new NeuralNetwork();
+        private NeuralNetwork neural_3 = new NeuralNetwork();
         private double[][] dataTest;
 
         public double calNetWeight(double[] weightValues, double[] nodeValues)
@@ -385,7 +387,7 @@ namespace NeralSample_2
                 }
                 n++;
             }
-            while (n < 1000);
+            while (n < 500);
 
             HiddenWeight[] arrHiddenWeights = new HiddenWeight[numberOfHiddenNode];
             for (int i = 0; i < numberOfHiddenNode; i++)
@@ -553,11 +555,13 @@ namespace NeralSample_2
             int[] arrCluster;
             List<double[]> cluster_1 = new List<double[]>();
             List<double[]> cluster_2 = new List<double[]>();
+            List<double[]> cluster_3 = new List<double[]>();
 
             List<double> lstOutPut_1 = new List<double>();
             List<double> lstOutPut_2 = new List<double>();
+            List<double> lstOutPut_3 = new List<double>();
 
-            double[][] arrMeans = k_means.MeansCal(valueOfInputNode, 2, out arrCluster);
+            double[][] arrMeans = k_means.MeansCal(valueOfInputNode, 3, out arrCluster);
 
             writeAllMeanClusters(arrMeans);
 
@@ -568,16 +572,22 @@ namespace NeralSample_2
                     cluster_1.Add(valueOfInputNode[i]);
                     lstOutPut_1.Add(valueExpectOutput[i]);
                 }
-                else
+                else if (arrCluster[i] == 1)
                 {
                     cluster_2.Add(valueOfInputNode[i]);
                     lstOutPut_2.Add(valueExpectOutput[i]);
+                }
+                else
+                {
+                    cluster_3.Add(valueOfInputNode[i]);
+                    lstOutPut_3.Add(valueExpectOutput[i]);
                 }
             }
 
             MessageBox.Show("cluster finished!!");
             trainSetOfPattern(cluster_1.ToArray(), lstOutPut_1.ToArray(), 1);
             trainSetOfPattern(cluster_2.ToArray(), lstOutPut_2.ToArray(), 2);
+            trainSetOfPattern(cluster_3.ToArray(), lstOutPut_3.ToArray(), 3);
             //trainSetOfPattern(valueOfInputNode, valueExpectOutput, 1);
         }
 
@@ -644,7 +654,7 @@ namespace NeralSample_2
 
                     this.cluster_1 = values[0];
 
-                    MessageBox.Show("Loaded!!");
+                    MessageBox.Show("cluster 1");
                 }
             }
         }
@@ -695,7 +705,7 @@ namespace NeralSample_2
 
                     this.cluster_2 = values[0];
 
-                    MessageBox.Show("Loaded!!");
+                    MessageBox.Show("cluster 2");
                 }
             }
         }
@@ -704,14 +714,34 @@ namespace NeralSample_2
         {
 
             List<double> outCal = new List<double>();
+            List<double[]> arrClust = new List<double[]>();
+            List<int> arrClusterIndex = new List<int>();
             for (int i = 0; i < dataTest.Length; i++)
             {
                 double dist_1 = Helper.EuclidDistance(dataTest[i], cluster_1);
-                double dist_2 = Helper.EuclidDistance(dataTest[i], cluster_2);                
-                double value = calOutPut(dataTest[i], neural_1);
-                if (dist_1 > dist_2)
-                    value = calOutPut(dataTest[i], neural_2);
+                double dist_2 = Helper.EuclidDistance(dataTest[i], cluster_2);
+                double dist_3 = Helper.EuclidDistance(dataTest[i], cluster_3);
+                double[] itemCluster = { dist_1, dist_2, dist_3 };
+
+                double min = dist_1;
+                NeuralNetwork chooseNet = neural_1;
+                int clusterIndex = 1;
+                if (dist_2 < min)
+                {
+                    min = dist_2;
+                    chooseNet = neural_2;
+                    clusterIndex = 2;
+                }
+                if (dist_3 < min)
+                {
+                    min = dist_3;
+                    chooseNet = neural_3;
+                    clusterIndex = 3;
+                }
+                double value = calOutPut(dataTest[i], chooseNet);
                 outCal.Add(value);
+                arrClust.Add(itemCluster);
+                arrClusterIndex.Add(clusterIndex);
             }
             MessageBox.Show("sdfsfdsdfsdf");
         }
@@ -742,6 +772,72 @@ namespace NeralSample_2
                     JsonSerializer ser = new JsonSerializer();
                     this.neural_2 = (NeuralNetwork)ser.Deserialize(file, typeof(NeuralNetwork));
                     MessageBox.Show("neural 2");
+                }
+            }
+        }
+
+        private void btnCluster_3_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.FileName = "*.csv";
+            if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = this.openFileDialog1.FileName;
+                using (var sr = new StreamReader(fileName))
+                {
+                    var reader = new CsvReader(sr);
+                    IEnumerable<MeanCluster> records = reader.GetRecords<MeanCluster>();
+                    List<double[]> values = new List<double[]>();
+                    List<double> expectValues = new List<double>();
+                    foreach (MeanCluster rec in records)
+                    {
+                        //values.Add(rec.x10);
+                        List<double> value = new List<double>();
+                        value.Add(rec.x0);
+                        value.Add(rec.x1);
+                        value.Add(rec.x2);
+                        value.Add(rec.x3);
+                        value.Add(rec.x4);
+                        value.Add(rec.x5);
+                        value.Add(rec.x6);
+                        value.Add(rec.x7);
+                        value.Add(rec.x8);
+                        value.Add(rec.x9);
+                        value.Add(rec.x10);
+                        value.Add(rec.x11);
+                        value.Add(rec.x12);
+                        value.Add(rec.x13);
+                        value.Add(rec.x14);
+                        value.Add(rec.x15);
+                        value.Add(rec.x16);
+                        value.Add(rec.x17);
+                        value.Add(rec.x18);
+                        value.Add(rec.x19);
+                        value.Add(rec.x20);
+                        value.Add(rec.x21);
+                        value.Add(rec.x22);
+                        value.Add(rec.x23);
+                        value.Add(rec.x24);
+                        values.Add(value.ToArray());
+                    }
+
+                    this.cluster_3 = values[0];
+
+                    MessageBox.Show("cluster 3");
+                }
+            }
+        }
+
+        private void btnOpenNet_3_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.FileName = "*.json";
+            if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = this.openFileDialog1.FileName;
+                using (StreamReader file = File.OpenText(fileName))
+                {
+                    JsonSerializer ser = new JsonSerializer();
+                    this.neural_3 = (NeuralNetwork)ser.Deserialize(file, typeof(NeuralNetwork));
+                    MessageBox.Show("neural 3");
                 }
             }
         }
